@@ -9,7 +9,7 @@
 #import "QuestionViewController.h"
 
 @interface QuestionViewController()
-    @property (nonatomic, strong) IBOutlet UITabBar *tabBar;
+
     @property (nonatomic, strong) IBOutlet UITableView *tableview;
     @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
     @property (nonatomic, strong) IBOutlet UITextView *textview;
