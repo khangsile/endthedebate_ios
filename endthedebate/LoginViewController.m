@@ -51,7 +51,6 @@
     }
 }
 
-// FBSample logic
 // main helper method to update the UI to reflect the current state of the session.
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
@@ -68,7 +67,6 @@
     }
 }
 
-// FBSample logic
 // handler for button click, logs sessions in or out
 - (IBAction)buttonClickHandler:(id)sender {
     // get the app delegate so that we can access the session property
