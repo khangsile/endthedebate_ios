@@ -35,12 +35,10 @@
 		76A14D7318411A1100DE8DE4 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7218411A1100DE8DE4 /* Question.m */; };
 		76A14D7618411A2700DE8DE4 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7518411A2700DE8DE4 /* Answer.m */; };
 		76A14D7818412CB500DE8DE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */; };
-		C36007DF1841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
-		C36007E01841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
 		C36007E118412B6400EA31FE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
 		C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */ = {isa = PBXBuildFile; fileRef = C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */; };
-		C36007F218414DFE00EA31FE /* QuestionPage.m in Sources */ = {isa = PBXBuildFile; fileRef = C36007F018414DFE00EA31FE /* QuestionPage.m */; };
-		C36007F318414DFE00EA31FE /* QuestionPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36007F118414DFE00EA31FE /* QuestionPage.xib */; };
+		C36007F218414DFE00EA31FE /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36007F018414DFE00EA31FE /* QuestionViewController.m */; };
+		C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36007F61841572200EA31FE /* QuestionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,11 +92,10 @@
 		76A14D7418411A2700DE8DE4 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		76A14D7518411A2700DE8DE4 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		C36007DE1841106700EA31FE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = /Users/cody/Desktop/endthedebate_ios/../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<absolute>"; };
 		C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 851565_207329966095351_137697998_n.png; sourceTree = "<group>"; };
-		C36007EF18414DFE00EA31FE /* QuestionPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionPage.h; sourceTree = "<group>"; };
-		C36007F018414DFE00EA31FE /* QuestionPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionPage.m; sourceTree = "<group>"; };
-		C36007F118414DFE00EA31FE /* QuestionPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionPage.xib; sourceTree = "<group>"; };
+		C36007EF18414DFE00EA31FE /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		C36007F018414DFE00EA31FE /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		C36007F61841572200EA31FE /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,9 +285,9 @@
 		C36007EE18414DDE00EA31FE /* QuestionPage */ = {
 			isa = PBXGroup;
 			children = (
-				C36007EF18414DFE00EA31FE /* QuestionPage.h */,
-				C36007F018414DFE00EA31FE /* QuestionPage.m */,
-				C36007F118414DFE00EA31FE /* QuestionPage.xib */,
+				C36007EF18414DFE00EA31FE /* QuestionViewController.h */,
+				C36007F018414DFE00EA31FE /* QuestionViewController.m */,
+				C36007F61841572200EA31FE /* QuestionViewController.xib */,
 			);
 			name = QuestionPage;
 			path = ..;
@@ -376,9 +373,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C36007F318414DFE00EA31FE /* QuestionPage.xib in Resources */,
 				76A14D2A1841045600DE8DE4 /* InfoPlist.strings in Resources */,
 				C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */,
+				C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */,
 				76A14D321841045600DE8DE4 /* Images.xcassets in Resources */,
 				76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */,
 				76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */,
@@ -432,7 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C36007F218414DFE00EA31FE /* QuestionPage.m in Sources */,
+				C36007F218414DFE00EA31FE /* QuestionViewController.m in Sources */,
 				76A14D301841045600DE8DE4 /* AppDelegate.m in Sources */,
 				76A14D7018411A0500DE8DE4 /* User.m in Sources */,
 				76A14D2C1841045600DE8DE4 /* main.m in Sources */,
