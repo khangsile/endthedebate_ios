@@ -27,6 +27,13 @@
 		76A14D591841106200DE8DE4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D581841106200DE8DE4 /* CFNetwork.framework */; };
 		76A14D5B1841106A00DE8DE4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D5A1841106A00DE8DE4 /* SystemConfiguration.framework */; };
 		76A14D5D184110C000DE8DE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D5C184110C000DE8DE4 /* CoreData.framework */; };
+		76A14D62184113C500DE8DE4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D60184113C500DE8DE4 /* MainViewController.m */; };
+		76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D61184113C500DE8DE4 /* MainViewController.xib */; };
+		76A14D6A1841174C00DE8DE4 /* KLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D671841174C00DE8DE4 /* KLTextView.m */; };
+		76A14D6B1841174C00DE8DE4 /* KLKeyboardBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D691841174C00DE8DE4 /* KLKeyboardBar.m */; };
+		76A14D7018411A0500DE8DE4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D6F18411A0500DE8DE4 /* User.m */; };
+		76A14D7318411A1100DE8DE4 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7218411A1100DE8DE4 /* Question.m */; };
+		76A14D7618411A2700DE8DE4 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7518411A2700DE8DE4 /* Answer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +73,19 @@
 		76A14D581841106200DE8DE4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		76A14D5A1841106A00DE8DE4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		76A14D5C184110C000DE8DE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		76A14D5F184113C500DE8DE4 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		76A14D60184113C500DE8DE4 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		76A14D61184113C500DE8DE4 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		76A14D661841174C00DE8DE4 /* KLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTextView.h; sourceTree = "<group>"; };
+		76A14D671841174C00DE8DE4 /* KLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTextView.m; sourceTree = "<group>"; };
+		76A14D681841174C00DE8DE4 /* KLKeyBoardbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLKeyBoardbar.h; sourceTree = "<group>"; };
+		76A14D691841174C00DE8DE4 /* KLKeyboardBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLKeyboardBar.m; sourceTree = "<group>"; };
+		76A14D6E18411A0500DE8DE4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		76A14D6F18411A0500DE8DE4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		76A14D7118411A1100DE8DE4 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		76A14D7218411A1100DE8DE4 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		76A14D7418411A2700DE8DE4 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		76A14D7518411A2700DE8DE4 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +160,7 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
+				76A14D64184115AE00DE8DE4 /* Libraries */,
 				76A14D5E1841116300DE8DE4 /* MainController */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,
 				76A14D311841045600DE8DE4 /* Images.xcassets */,
@@ -190,8 +211,52 @@
 		76A14D5E1841116300DE8DE4 /* MainController */ = {
 			isa = PBXGroup;
 			children = (
+				76A14D5F184113C500DE8DE4 /* MainViewController.h */,
+				76A14D60184113C500DE8DE4 /* MainViewController.m */,
+				76A14D61184113C500DE8DE4 /* MainViewController.xib */,
+				76A14D6C1841195500DE8DE4 /* LeftSidePanel */,
 			);
 			name = MainController;
+			sourceTree = "<group>";
+		};
+		76A14D64184115AE00DE8DE4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D6D184119F800DE8DE4 /* API */,
+				76A14D65184115E300DE8DE4 /* KLTextView */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		76A14D65184115E300DE8DE4 /* KLTextView */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D661841174C00DE8DE4 /* KLTextView.h */,
+				76A14D671841174C00DE8DE4 /* KLTextView.m */,
+				76A14D681841174C00DE8DE4 /* KLKeyBoardbar.h */,
+				76A14D691841174C00DE8DE4 /* KLKeyboardBar.m */,
+			);
+			name = KLTextView;
+			sourceTree = "<group>";
+		};
+		76A14D6C1841195500DE8DE4 /* LeftSidePanel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LeftSidePanel;
+			sourceTree = "<group>";
+		};
+		76A14D6D184119F800DE8DE4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D6E18411A0500DE8DE4 /* User.h */,
+				76A14D6F18411A0500DE8DE4 /* User.m */,
+				76A14D7118411A1100DE8DE4 /* Question.h */,
+				76A14D7218411A1100DE8DE4 /* Question.m */,
+				76A14D7418411A2700DE8DE4 /* Answer.h */,
+				76A14D7518411A2700DE8DE4 /* Answer.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +339,7 @@
 				76A14D2A1841045600DE8DE4 /* InfoPlist.strings in Resources */,
 				76A14D321841045600DE8DE4 /* Images.xcassets in Resources */,
 				76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */,
+				76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,8 +390,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A14D301841045600DE8DE4 /* AppDelegate.m in Sources */,
+				76A14D7018411A0500DE8DE4 /* User.m in Sources */,
 				76A14D2C1841045600DE8DE4 /* main.m in Sources */,
 				76A14D5218410A7500DE8DE4 /* LoginViewController.m in Sources */,
+				76A14D6A1841174C00DE8DE4 /* KLTextView.m in Sources */,
+				76A14D7318411A1100DE8DE4 /* Question.m in Sources */,
+				76A14D62184113C500DE8DE4 /* MainViewController.m in Sources */,
+				76A14D7618411A2700DE8DE4 /* Answer.m in Sources */,
+				76A14D6B1841174C00DE8DE4 /* KLKeyboardBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
