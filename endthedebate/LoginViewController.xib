@@ -15,16 +15,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoP-vn-PFy">
-                    <rect key="frame" x="48" y="231" width="224" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoP-vn-PFy">
+                    <rect key="frame" x="48" y="217" width="224" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <size key="titleShadowOffset" width="3" height="-3"/>
-                    <state key="normal" image="851565_207329966095351_137697998_n.png">
-                        <attributedString key="attributedTitle"/>
-                    </state>
+                    <state key="normal" title="" backgroundImage="851565_207329966095351_137697998_n.png"/>
                     <connections>
-                        <action selector="buttonClickHandler:" destination="-1" eventType="touchUpInside" id="Ee9-eM-Z76"/>
+                        <action selector="buttonClickHandler:" destination="-1" eventType="touchUpInside" id="6vL-ab-dZh"/>
                     </connections>
                 </button>
             </subviews>
