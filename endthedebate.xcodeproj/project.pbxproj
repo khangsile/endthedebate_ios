@@ -22,6 +22,8 @@
 		76A14D451841045600DE8DE4 /* endthedebateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D441841045600DE8DE4 /* endthedebateTests.m */; };
 		76A14D5218410A7500DE8DE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D5018410A7500DE8DE4 /* LoginViewController.m */; };
 		76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
+		C36007DF1841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
+		C36007E01841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,7 @@
 		76A14D4F18410A7500DE8DE4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		76A14D5018410A7500DE8DE4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		76A14D5118410A7500DE8DE4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		C36007DE1841106700EA31FE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = /Users/cody/Desktop/endthedebate_ios/../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A14D221841045500DE8DE4 /* CoreGraphics.framework in Frameworks */,
+				C36007DF1841106700EA31FE /* FacebookSDK.framework in Frameworks */,
 				76A14D241841045500DE8DE4 /* UIKit.framework in Frameworks */,
 				76A14D201841045500DE8DE4 /* Foundation.framework in Frameworks */,
 				12747181BD2A42409ADEE7DE /* libPods.a in Frameworks */,
@@ -75,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A14D391841045600DE8DE4 /* XCTest.framework in Frameworks */,
+				C36007E01841106700EA31FE /* FacebookSDK.framework in Frameworks */,
 				76A14D3B1841045600DE8DE4 /* UIKit.framework in Frameworks */,
 				76A14D3A1841045600DE8DE4 /* Foundation.framework in Frameworks */,
 			);
@@ -106,6 +111,7 @@
 		76A14D1E1841045500DE8DE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C36007DE1841106700EA31FE /* FacebookSDK.framework */,
 				76A14D1F1841045500DE8DE4 /* Foundation.framework */,
 				76A14D211841045500DE8DE4 /* CoreGraphics.framework */,
 				76A14D231841045500DE8DE4 /* UIKit.framework */,
@@ -417,6 +423,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/cody/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
 				INFOPLIST_FILE = "endthedebate/endthedebate-Info.plist";
@@ -431,6 +441,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/cody/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
 				INFOPLIST_FILE = "endthedebate/endthedebate-Info.plist";
@@ -448,6 +462,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/cody/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
@@ -471,6 +486,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/cody/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
