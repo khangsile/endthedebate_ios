@@ -25,7 +25,7 @@
     return mapping;
 }
 
-+ (RKResponseDescriptor*)getResponseDescriptor
++ (RKResponseDescriptor*)getResponseMapping
 {
     return [RKResponseDescriptor responseDescriptorWithMapping:[self getObjectMapping]
                                                         method:RKRequestMethodAny
@@ -34,7 +34,7 @@
                                                    statusCodes:nil];
 }
 
-+ (RKRequestDescriptor*)getRequestDescriptor
++ (RKRequestDescriptor*)getRequestMapping
 {
     return [RKRequestDescriptor requestDescriptorWithMapping:[self getObjectMapping]
                                                  objectClass:[self class]

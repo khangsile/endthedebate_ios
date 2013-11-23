@@ -15,18 +15,12 @@
 
 @interface LoginViewController ()
 
-@property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
-@property (strong, nonatomic) IBOutlet UITextView *textNoteOrLink;
-
 - (IBAction)buttonClickHandler:(id)sender;
 - (void)updateView;
 
 @end
 
 @implementation LoginViewController
-
-@synthesize textNoteOrLink = _textNoteOrLink;
-@synthesize buttonLoginLogout = _buttonLoginLogout;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,17 +51,7 @@
 // main helper method to update the UI to reflect the current state of the session.
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    if (appDelegate.session.isOpen) {
-        // valid account UI is shown whenever the session is open
-        [self.buttonLoginLogout setTitle:@"Log out" forState:UIControlStateNormal];
-        [self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
-                                      appDelegate.session.accessTokenData.accessToken]];
-    } else {
-        // login-needed account UI is shown whenever the session is closed
-        [self.buttonLoginLogout setTitle:@"Log in" forState:UIControlStateNormal];
-        [self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
-    }
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 // handler for button click, logs sessions in or out
@@ -97,6 +81,7 @@
             
             NSString *accessToken = [[session accessTokenData] accessToken];
             NSLog(@"%@", accessToken);
+            NSLog(@"%@", [[session accessTokenData] expirationDate]);
             RKObjectManager *manager = [RKObjectManager sharedManager];
             
             NSMutableURLRequest *request = [manager requestWithObject:nil
@@ -104,16 +89,12 @@
                                                                  path:@"facebook_login.json"
                                                            parameters:nil];
             [request setValue:accessToken forHTTPHeaderField:@"OAUTH"];
-            
-            NSLog(@"%@", [request URL]);
-            
+                        
             RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
                     success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                        NSLog(@"Here");
+                        [self presentViewController:[[MainViewController alloc] init] animated:NO completion:nil];
             } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                 NSLog(@"Fail");
-                
-                [self presentViewController:[[MainViewController alloc] init] animated:YES completion:nil];
             }];
             
             [operation start];
@@ -123,14 +104,6 @@
 }
 
 #pragma mark Template generated code
-
-- (void)viewDidUnload
-{
-    self.buttonLoginLogout = nil;
-    self.textNoteOrLink = nil;
-    
-    [super viewDidUnload];
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

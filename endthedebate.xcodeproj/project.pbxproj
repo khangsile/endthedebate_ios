@@ -35,7 +35,12 @@
 		76A14D7318411A1100DE8DE4 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7218411A1100DE8DE4 /* Question.m */; };
 		76A14D7618411A2700DE8DE4 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7518411A2700DE8DE4 /* Answer.m */; };
 		76A14D7818412CB500DE8DE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */; };
+		76A14D84184159C800DE8DE4 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D82184159C800DE8DE4 /* ResultsViewController.m */; };
+		76A14D85184159C800DE8DE4 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D83184159C800DE8DE4 /* ResultsViewController.xib */; };
 		C36007E118412B6400EA31FE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
+		C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */ = {isa = PBXBuildFile; fileRef = C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */; };
+		C36007F218414DFE00EA31FE /* QuestionPage.m in Sources */ = {isa = PBXBuildFile; fileRef = C36007F018414DFE00EA31FE /* QuestionPage.m */; };
+		C36007F318414DFE00EA31FE /* QuestionPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36007F118414DFE00EA31FE /* QuestionPage.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +94,13 @@
 		76A14D7418411A2700DE8DE4 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		76A14D7518411A2700DE8DE4 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		76A14D81184159C800DE8DE4 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		76A14D82184159C800DE8DE4 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		76A14D83184159C800DE8DE4 /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
+		C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 851565_207329966095351_137697998_n.png; sourceTree = "<group>"; };
+		C36007EF18414DFE00EA31FE /* QuestionPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionPage.h; sourceTree = "<group>"; };
+		C36007F018414DFE00EA31FE /* QuestionPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionPage.m; sourceTree = "<group>"; };
+		C36007F118414DFE00EA31FE /* QuestionPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionPage.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,11 +177,13 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
-				76A14D64184115AE00DE8DE4 /* Libraries */,
+				76A14D7D1841592600DE8DE4 /* ResultsController */,
 				76A14D5E1841116300DE8DE4 /* MainController */,
+				C36007EE18414DDE00EA31FE /* QuestionPage */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,
 				76A14D311841045600DE8DE4 /* Images.xcassets */,
-				C36007E21841387B00EA31FE /* New Group */,
+				76A14D64184115AE00DE8DE4 /* Libraries */,
+				C36007E21841387B00EA31FE /* Images */,
 				76A14D261841045600DE8DE4 /* Supporting Files */,
 			);
 			path = endthedebate;
@@ -265,11 +279,41 @@
 			name = API;
 			sourceTree = "<group>";
 		};
-		C36007E21841387B00EA31FE /* New Group */ = {
+		76A14D7D1841592600DE8DE4 /* ResultsController */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D81184159C800DE8DE4 /* ResultsViewController.h */,
+				76A14D82184159C800DE8DE4 /* ResultsViewController.m */,
+				76A14D83184159C800DE8DE4 /* ResultsViewController.xib */,
+				76A14D8618415ACF00DE8DE4 /* Cells */,
+			);
+			name = ResultsController;
+			sourceTree = "<group>";
+		};
+		76A14D8618415ACF00DE8DE4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "New Group";
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C36007E21841387B00EA31FE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */,
+			);
+			name = Images;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C36007EE18414DDE00EA31FE /* QuestionPage */ = {
+			isa = PBXGroup;
+			children = (
+				C36007EF18414DFE00EA31FE /* QuestionPage.h */,
+				C36007F018414DFE00EA31FE /* QuestionPage.m */,
+				C36007F118414DFE00EA31FE /* QuestionPage.xib */,
+			);
+			name = QuestionPage;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -353,7 +397,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A14D85184159C800DE8DE4 /* ResultsViewController.xib in Resources */,
+				C36007F318414DFE00EA31FE /* QuestionPage.xib in Resources */,
 				76A14D2A1841045600DE8DE4 /* InfoPlist.strings in Resources */,
+				C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */,
 				76A14D321841045600DE8DE4 /* Images.xcassets in Resources */,
 				76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */,
 				76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */,
@@ -407,10 +454,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36007F218414DFE00EA31FE /* QuestionPage.m in Sources */,
 				76A14D301841045600DE8DE4 /* AppDelegate.m in Sources */,
 				76A14D7018411A0500DE8DE4 /* User.m in Sources */,
 				76A14D2C1841045600DE8DE4 /* main.m in Sources */,
 				76A14D5218410A7500DE8DE4 /* LoginViewController.m in Sources */,
+				76A14D84184159C800DE8DE4 /* ResultsViewController.m in Sources */,
 				76A14D6A1841174C00DE8DE4 /* KLTextView.m in Sources */,
 				76A14D7318411A1100DE8DE4 /* Question.m in Sources */,
 				76A14D62184113C500DE8DE4 /* MainViewController.m in Sources */,

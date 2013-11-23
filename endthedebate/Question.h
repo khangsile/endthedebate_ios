@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *answers;
 
 + (RKObjectMapping*)getObjectMapping;
-+ (RKResponseDescriptor*)getResponseDescriptor;
-+ (RKRequestDescriptor*)getRequestDescriptor;
++ (RKResponseDescriptor*)getResponseMapping;
++ (RKRequestDescriptor*)getRequestMapping;
 
 @end

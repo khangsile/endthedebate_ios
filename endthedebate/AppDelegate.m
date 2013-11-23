@@ -11,7 +11,13 @@
 #import "LoginViewController.h"
 #import "MainViewController.h"
 
+//Models
+#import "User.h"
+#import "Question.h"
+#import "Answer.h"
+
 #import <RestKit.h>
+
 
 @implementation AppDelegate
 
@@ -81,9 +87,12 @@
 {
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.1.116:3000/api"]];
     [manager.HTTPClient setDefaultHeader:@"CONTENT-TYPE" value:@"application/json"];
-    [RKObjectManager setSharedManager:manager];
+
+    //Set request/response descriptors
+    [manager addResponseDescriptor:[User getResponseMapping]];
+    [manager addResponseDescriptor:[Question getResponseMapping]];
     
-    //Add request/response descriptors here
+    [RKObjectManager setSharedManager:manager];
 }
 
 
