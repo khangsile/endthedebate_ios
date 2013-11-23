@@ -35,7 +35,6 @@
 		76A14D7318411A1100DE8DE4 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7218411A1100DE8DE4 /* Question.m */; };
 		76A14D7618411A2700DE8DE4 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7518411A2700DE8DE4 /* Answer.m */; };
 		76A14D7818412CB500DE8DE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */; };
-=======
 		C36007DF1841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
 		C36007E01841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
 		C36007E118412B6400EA31FE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
