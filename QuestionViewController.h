@@ -9,6 +9,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionPage : UIViewController
+@interface QuestionViewController : UIViewController
 
 @end
