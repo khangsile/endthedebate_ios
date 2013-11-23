@@ -7,17 +7,24 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginViewController.h"
 
+#import "LoginViewController.h"
+#import "MainViewController.h"
+
+#import <RestKit.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setUpRestKit];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[LoginViewController alloc] init];
+
+    self.viewController = (self.session.isOpen) ? [[MainViewController alloc] init] : [[LoginViewController alloc] init];
     self.window.rootViewController = self.viewController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -70,6 +77,14 @@
 
 /**
  */
+- (void)setUpRestKit
+{
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.1.116:3000/api"]];
+    [manager.HTTPClient setDefaultHeader:@"CONTENT-TYPE" value:@"application/json"];
+    [RKObjectManager setSharedManager:manager];
+    
+    //Add request/response descriptors here
+}
 
 
 @end

@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+
+#import <RestKit.h>
 
 @interface LoginViewController ()
 
@@ -70,7 +73,7 @@
 // handler for button click, logs sessions in or out
 - (IBAction)buttonClickHandler:(id)sender {
     // get the app delegate so that we can access the session property
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     // this button's job is to flip-flop the session from open to closed
     if (appDelegate.session.isOpen) {
@@ -90,8 +93,31 @@
         [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                          FBSessionState status,
                                                          NSError *error) {
-            // and here we make sure to update our UX according to the new session state
-            [self updateView];
+            if (status != FBSessionStateOpen) return;
+            
+            NSString *accessToken = [[session accessTokenData] accessToken];
+            NSLog(@"%@", accessToken);
+            RKObjectManager *manager = [RKObjectManager sharedManager];
+            
+            NSMutableURLRequest *request = [manager requestWithObject:nil
+                                                               method:RKRequestMethodPOST
+                                                                 path:@"facebook_login.json"
+                                                           parameters:nil];
+            [request setValue:accessToken forHTTPHeaderField:@"OAUTH"];
+            
+            NSLog(@"%@", [request URL]);
+            
+            RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
+                    success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                        NSLog(@"Here");
+            } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                NSLog(@"Fail");
+                
+                [self presentViewController:[[MainViewController alloc] init] animated:YES completion:nil];
+            }];
+            
+            [operation start];
+            
         }];
     }
 }
