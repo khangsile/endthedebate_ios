@@ -179,7 +179,7 @@
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
 				76A14D7D1841592600DE8DE4 /* ResultsController */,
 				76A14D5E1841116300DE8DE4 /* MainController */,
-				C36007EE18414DDE00EA31FE /* QuestionPage */,
+				C36007EE18414DDE00EA31FE /* QuestionViewController */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,
 				76A14D311841045600DE8DE4 /* Images.xcassets */,
 				76A14D64184115AE00DE8DE4 /* Libraries */,
@@ -306,14 +306,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		C36007EE18414DDE00EA31FE /* QuestionPage */ = {
+		C36007EE18414DDE00EA31FE /* QuestionViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C36007EF18414DFE00EA31FE /* QuestionViewController.h */,
 				C36007F018414DFE00EA31FE /* QuestionViewController.m */,
 				C36007F61841572200EA31FE /* QuestionViewController.xib */,
 			);
-			name = QuestionPage;
+			name = QuestionViewController;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -398,7 +398,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A14D85184159C800DE8DE4 /* ResultsViewController.xib in Resources */,
-				C36007F318414DFE00EA31FE /* QuestionPage.xib in Resources */,
 				76A14D2A1841045600DE8DE4 /* InfoPlist.strings in Resources */,
 				C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */,
 				C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */,

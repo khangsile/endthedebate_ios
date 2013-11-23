@@ -12,10 +12,11 @@
     
     @property (nonatomic, strong) IBOutlet UITableView *tableview;
     @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+    @property (nonatomic, strong) IBOutlet UITextView *textview;
 
 @end
-
 
 @implementation QuestionViewController
 
 @end
+
