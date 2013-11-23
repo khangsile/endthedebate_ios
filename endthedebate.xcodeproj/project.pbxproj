@@ -22,8 +22,6 @@
 		76A14D451841045600DE8DE4 /* endthedebateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D441841045600DE8DE4 /* endthedebateTests.m */; };
 		76A14D5218410A7500DE8DE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D5018410A7500DE8DE4 /* LoginViewController.m */; };
 		76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
-		C36007DF1841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
-		C36007E01841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
 		76A14D551841101E00DE8DE4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D541841101E00DE8DE4 /* MobileCoreServices.framework */; };
 		76A14D571841105800DE8DE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D561841105800DE8DE4 /* Security.framework */; };
 		76A14D591841106200DE8DE4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D581841106200DE8DE4 /* CFNetwork.framework */; };
@@ -36,6 +34,7 @@
 		76A14D7018411A0500DE8DE4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D6F18411A0500DE8DE4 /* User.m */; };
 		76A14D7318411A1100DE8DE4 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7218411A1100DE8DE4 /* Question.m */; };
 		76A14D7618411A2700DE8DE4 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7518411A2700DE8DE4 /* Answer.m */; };
+		76A14D7818412CB500DE8DE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 		76A14D4F18410A7500DE8DE4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		76A14D5018410A7500DE8DE4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		76A14D5118410A7500DE8DE4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		C36007DE1841106700EA31FE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = /Users/cody/Desktop/endthedebate_ios/../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<absolute>"; };
 		76A14D541841101E00DE8DE4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		76A14D561841105800DE8DE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		76A14D581841106200DE8DE4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -89,6 +87,7 @@
 		76A14D7218411A1100DE8DE4 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		76A14D7418411A2700DE8DE4 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		76A14D7518411A2700DE8DE4 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,13 +96,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A14D221841045500DE8DE4 /* CoreGraphics.framework in Frameworks */,
-				C36007DF1841106700EA31FE /* FacebookSDK.framework in Frameworks */,
 				76A14D241841045500DE8DE4 /* UIKit.framework in Frameworks */,
 				76A14D201841045500DE8DE4 /* Foundation.framework in Frameworks */,
 				76A14D5D184110C000DE8DE4 /* CoreData.framework in Frameworks */,
 				76A14D5B1841106A00DE8DE4 /* SystemConfiguration.framework in Frameworks */,
 				76A14D591841106200DE8DE4 /* CFNetwork.framework in Frameworks */,
 				76A14D571841105800DE8DE4 /* Security.framework in Frameworks */,
+				76A14D7818412CB500DE8DE4 /* FacebookSDK.framework in Frameworks */,
 				76A14D551841101E00DE8DE4 /* MobileCoreServices.framework in Frameworks */,
 				12747181BD2A42409ADEE7DE /* libPods.a in Frameworks */,
 			);
@@ -114,7 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A14D391841045600DE8DE4 /* XCTest.framework in Frameworks */,
-				C36007E01841106700EA31FE /* FacebookSDK.framework in Frameworks */,
 				76A14D3B1841045600DE8DE4 /* UIKit.framework in Frameworks */,
 				76A14D3A1841045600DE8DE4 /* Foundation.framework in Frameworks */,
 			);
@@ -146,7 +144,7 @@
 		76A14D1E1841045500DE8DE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C36007DE1841106700EA31FE /* FacebookSDK.framework */,
+				76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */,
 				76A14D5C184110C000DE8DE4 /* CoreData.framework */,
 				76A14D5A1841106A00DE8DE4 /* SystemConfiguration.framework */,
 				76A14D581841106200DE8DE4 /* CFNetwork.framework */,
@@ -526,6 +524,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/cody/Documents/FacebookSDK,
+					/Users/KhangSiLe/Documents/Workspace/iOS/endthedebate,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
@@ -544,6 +543,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/cody/Documents/FacebookSDK,
+					/Users/KhangSiLe/Documents/Workspace/iOS/endthedebate,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";

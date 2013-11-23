@@ -10,4 +10,15 @@
 
 @implementation Answer
 
++ (RKObjectMapping*)getObjectMapping
+{
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class]];
+    [mapping addAttributeMappingsFromDictionary:@{
+        @"id" : @"answerId",
+        @"answer" : @"answer"
+    }];
+    
+    return mapping;
+}
+
 @end
