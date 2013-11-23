@@ -22,6 +22,11 @@
 		76A14D451841045600DE8DE4 /* endthedebateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D441841045600DE8DE4 /* endthedebateTests.m */; };
 		76A14D5218410A7500DE8DE4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D5018410A7500DE8DE4 /* LoginViewController.m */; };
 		76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
+		76A14D551841101E00DE8DE4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D541841101E00DE8DE4 /* MobileCoreServices.framework */; };
+		76A14D571841105800DE8DE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D561841105800DE8DE4 /* Security.framework */; };
+		76A14D591841106200DE8DE4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D581841106200DE8DE4 /* CFNetwork.framework */; };
+		76A14D5B1841106A00DE8DE4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D5A1841106A00DE8DE4 /* SystemConfiguration.framework */; };
+		76A14D5D184110C000DE8DE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D5C184110C000DE8DE4 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,11 @@
 		76A14D4F18410A7500DE8DE4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		76A14D5018410A7500DE8DE4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		76A14D5118410A7500DE8DE4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		76A14D541841101E00DE8DE4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		76A14D561841105800DE8DE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		76A14D581841106200DE8DE4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		76A14D5A1841106A00DE8DE4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		76A14D5C184110C000DE8DE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +74,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A14D221841045500DE8DE4 /* CoreGraphics.framework in Frameworks */,
-				76A14D241841045500DE8DE4 /* UIKit.framework in Frameworks */,
 				76A14D201841045500DE8DE4 /* Foundation.framework in Frameworks */,
+				76A14D5D184110C000DE8DE4 /* CoreData.framework in Frameworks */,
+				76A14D5B1841106A00DE8DE4 /* SystemConfiguration.framework in Frameworks */,
+				76A14D591841106200DE8DE4 /* CFNetwork.framework in Frameworks */,
+				76A14D571841105800DE8DE4 /* Security.framework in Frameworks */,
+				76A14D551841101E00DE8DE4 /* MobileCoreServices.framework in Frameworks */,
+				76A14D241841045500DE8DE4 /* UIKit.framework in Frameworks */,
 				12747181BD2A42409ADEE7DE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +121,11 @@
 		76A14D1E1841045500DE8DE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76A14D5C184110C000DE8DE4 /* CoreData.framework */,
+				76A14D5A1841106A00DE8DE4 /* SystemConfiguration.framework */,
+				76A14D581841106200DE8DE4 /* CFNetwork.framework */,
+				76A14D561841105800DE8DE4 /* Security.framework */,
+				76A14D541841101E00DE8DE4 /* MobileCoreServices.framework */,
 				76A14D1F1841045500DE8DE4 /* Foundation.framework */,
 				76A14D211841045500DE8DE4 /* CoreGraphics.framework */,
 				76A14D231841045500DE8DE4 /* UIKit.framework */,
@@ -120,6 +140,7 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
+				76A14D5E1841116300DE8DE4 /* MainController */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,
 				76A14D311841045600DE8DE4 /* Images.xcassets */,
 				76A14D261841045600DE8DE4 /* Supporting Files */,
@@ -164,6 +185,13 @@
 				76A14D5118410A7500DE8DE4 /* LoginViewController.xib */,
 			);
 			name = LoginController;
+			sourceTree = "<group>";
+		};
+		76A14D5E1841116300DE8DE4 /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MainController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
