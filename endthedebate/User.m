@@ -10,6 +10,8 @@
 
 @implementation User
 
+static User *activeUser;
+
 + (RKObjectMapping*)getObjectMapping
 {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class]];
@@ -40,6 +42,19 @@
                                           objectClass:[self class]
                                           rootKeyPath:nil
                                                method:RKRequestMethodAny];
+    
+}
+
++ (User*)activeUser
+{
+    if (!activeUser)
+        activeUser = [User new];
+    
+    return activeUser;
+}
+
++ (void)login
+{
     
 }
 

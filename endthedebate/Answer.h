@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
 
 @interface Answer : NSObject
 
 @property (nonatomic) NSUInteger answerId;
 @property (nonatomic, strong) NSString *answer;
+
++ (RKObjectMapping*)getObjectMapping;
 
 @end
