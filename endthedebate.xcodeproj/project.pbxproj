@@ -35,6 +35,10 @@
 		76A14D7318411A1100DE8DE4 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7218411A1100DE8DE4 /* Question.m */; };
 		76A14D7618411A2700DE8DE4 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D7518411A2700DE8DE4 /* Answer.m */; };
 		76A14D7818412CB500DE8DE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */; };
+=======
+		C36007DF1841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
+		C36007E01841106700EA31FE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36007DE1841106700EA31FE /* FacebookSDK.framework */; };
+		C36007E118412B6400EA31FE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,7 @@
 		76A14D7418411A2700DE8DE4 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		76A14D7518411A2700DE8DE4 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		C36007DE1841106700EA31FE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = /Users/cody/Desktop/endthedebate_ios/../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +173,7 @@
 				76A14D5E1841116300DE8DE4 /* MainController */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,
 				76A14D311841045600DE8DE4 /* Images.xcassets */,
+				C36007E21841387B00EA31FE /* New Group */,
 				76A14D261841045600DE8DE4 /* Supporting Files */,
 			);
 			path = endthedebate;
@@ -263,6 +269,14 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		C36007E21841387B00EA31FE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,6 +326,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Khang Le";
 				TargetAttributes = {
+					76A14D1B1841045500DE8DE4 = {
+						DevelopmentTeam = PZAMT83P7E;
+					};
 					76A14D361841045600DE8DE4 = {
 						TestTargetID = 76A14D1B1841045500DE8DE4;
 					};
@@ -351,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36007E118412B6400EA31FE /* LoginViewController.xib in Resources */,
 				76A14D431841045600DE8DE4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +539,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/cody/Documents/FacebookSDK,
@@ -530,6 +550,7 @@
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
 				INFOPLIST_FILE = "endthedebate/endthedebate-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -540,6 +561,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/cody/Documents/FacebookSDK,
@@ -549,6 +572,7 @@
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
 				INFOPLIST_FILE = "endthedebate/endthedebate-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
