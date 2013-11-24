@@ -82,6 +82,7 @@
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     cell.textLabel.text = question.question;
     
+        
     return cell;
 }
 
