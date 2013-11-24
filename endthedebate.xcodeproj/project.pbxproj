@@ -196,7 +196,7 @@
 				76A14D8D184180D400DE8DE4 /* CreateQuestionController */,
 				76A14D7D1841592600DE8DE4 /* ResultsController */,
 				76A14D5E1841116300DE8DE4 /* MainController */,
-				C36007EE18414DDE00EA31FE /* QuestionPage */,
+				C36007EE18414DDE00EA31FE /* QuestionViewController */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,
 				76A14D311841045600DE8DE4 /* Images.xcassets */,
 				76A14D64184115AE00DE8DE4 /* Libraries */,
@@ -354,14 +354,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		C36007EE18414DDE00EA31FE /* QuestionPage */ = {
+		C36007EE18414DDE00EA31FE /* QuestionViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C36007EF18414DFE00EA31FE /* QuestionViewController.h */,
 				C36007F018414DFE00EA31FE /* QuestionViewController.m */,
 				C36007F61841572200EA31FE /* QuestionViewController.xib */,
 			);
-			name = QuestionPage;
+			name = QuestionViewController;
 			path = ..;
 			sourceTree = "<group>";
 		};
