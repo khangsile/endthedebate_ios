@@ -67,7 +67,7 @@
     Answer *answer = [self.question.answers objectAtIndex:[indexPath row]];
     cell.answerLabel.text = answer.answer;
     
-    cell.contentView.backgroundColor = [UIColor colorWithRed:154/255.0 green:15/255.0 blue:15/255.0 alpha:.5];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:255/255.0 alpha:.5];
     
     return cell;
 }
