@@ -143,10 +143,7 @@
         LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController"
                                                                                          bundle:nil];
         [self.mainController presentViewController:loginViewController animated:NO completion:nil];
-    } else {
-        LoginViewController *loginViewController = (LoginViewController*)modalViewController;
-        [self.mainController presentViewController:loginViewController animated:NO completion:nil];
-    }
+    } 
 }
 
 - (void)sessionStateChanged:(FBSession *)session

@@ -14,6 +14,8 @@
 		764338291842769500EE166B /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764338281842769500EE166B /* QuestionCell.xib */; };
 		7643382D1842833300EE166B /* LegendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7643382C1842833300EE166B /* LegendCell.m */; };
 		7643382F1842834500EE166B /* LegendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7643382E1842834500EE166B /* LegendCell.xib */; };
+		76433834184287E800EE166B /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76433832184287E800EE166B /* HistoryViewController.m */; };
+		76433835184287E800EE166B /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76433833184287E800EE166B /* HistoryViewController.xib */; };
 		76A14D201841045500DE8DE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D1F1841045500DE8DE4 /* Foundation.framework */; };
 		76A14D221841045500DE8DE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D211841045500DE8DE4 /* CoreGraphics.framework */; };
 		76A14D241841045500DE8DE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D231841045500DE8DE4 /* UIKit.framework */; };
@@ -83,6 +85,9 @@
 		7643382B1842833300EE166B /* LegendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendCell.h; sourceTree = "<group>"; };
 		7643382C1842833300EE166B /* LegendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendCell.m; sourceTree = "<group>"; };
 		7643382E1842834500EE166B /* LegendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegendCell.xib; sourceTree = "<group>"; };
+		76433831184287E800EE166B /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		76433832184287E800EE166B /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		76433833184287E800EE166B /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		76A14D1C1841045500DE8DE4 /* endthedebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = endthedebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A14D1F1841045500DE8DE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		76A14D211841045500DE8DE4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -191,6 +196,16 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		76433830184287CE00EE166B /* HistoryController */ = {
+			isa = PBXGroup;
+			children = (
+				76433831184287E800EE166B /* HistoryViewController.h */,
+				76433832184287E800EE166B /* HistoryViewController.m */,
+				76433833184287E800EE166B /* HistoryViewController.xib */,
+			);
+			name = HistoryController;
+			sourceTree = "<group>";
+		};
 		76A14D131841045500DE8DE4 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +251,7 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
+				76433830184287CE00EE166B /* HistoryController */,
 				76A14D941841865F00DE8DE4 /* CreateAnswerController */,
 				76A14D8D184180D400DE8DE4 /* CreateQuestionController */,
 				76A14D7D1841592600DE8DE4 /* ResultsController */,
@@ -520,6 +536,7 @@
 				76A14D931841824700DE8DE4 /* AnswerCell.xib in Resources */,
 				C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */,
 				76A14D321841045600DE8DE4 /* Images.xcassets in Resources */,
+				76433835184287E800EE166B /* HistoryViewController.xib in Resources */,
 				7643382F1842834500EE166B /* LegendCell.xib in Resources */,
 				76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */,
 				76A14D991841868800DE8DE4 /* CreateAnswerViewController.xib in Resources */,
@@ -593,6 +610,7 @@
 				76A14D7318411A1100DE8DE4 /* Question.m in Sources */,
 				76A14D62184113C500DE8DE4 /* MainViewController.m in Sources */,
 				76A14D7618411A2700DE8DE4 /* Answer.m in Sources */,
+				76433834184287E800EE166B /* HistoryViewController.m in Sources */,
 				76A14D6B1841174C00DE8DE4 /* KLKeyboardBar.m in Sources */,
 				C38D51A618418D23006FFA1E /* LeftSidePanelViewController.m in Sources */,
 			);
