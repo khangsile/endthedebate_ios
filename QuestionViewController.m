@@ -10,12 +10,27 @@
 
 @interface QuestionViewController()
     
-    @property (nonatomic, strong) IBOutlet UITableView *tableview;
-    @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) IBOutlet UITableView *tableview;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
-
 @implementation QuestionViewController
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [UITableViewCell new];
+}
+
 
 @end

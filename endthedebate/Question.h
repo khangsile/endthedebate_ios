@@ -11,7 +11,7 @@
 
 @interface Question : NSObject
 
-@property (nonatomic) NSUInteger qId;
+@property (nonatomic) NSUInteger questionId;
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic, strong) NSMutableArray *answers;
 

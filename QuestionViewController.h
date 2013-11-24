@@ -9,6 +9,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
