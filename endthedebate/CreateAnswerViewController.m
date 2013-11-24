@@ -93,7 +93,7 @@
     
     cell.letter.text = [NSString stringWithFormat:@"%c", [indexPath row]+65];
     cell.answerLabel.text = [self.answers objectAtIndex:[indexPath row]];
-    
+    cell.contentView.backgroundColor = [UIColor colorWithRed:49/255.0 green:224/255.0 blue:236/255.0 alpha:.5];
     return cell;
 }
 

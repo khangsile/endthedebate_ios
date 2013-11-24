@@ -52,7 +52,9 @@
 		C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36007F61841572200EA31FE /* QuestionViewController.xib */; };
 		C38D51A618418D23006FFA1E /* LeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38D51A518418D23006FFA1E /* LeftSidePanelViewController.m */; };
 		C38D51A818418D3B006FFA1E /* LeftSidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38D51A718418D3B006FFA1E /* LeftSidePanelViewController.xib */; };
-		C38D51AA1842689C006FFA1E /* SWIcon2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C38D51A91842689C006FFA1E /* SWIcon2.jpg */; };
+		C38D51B1184281C8006FFA1E /* SWIcon2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C38D51B0184281C8006FFA1E /* SWIcon2.PNG */; };
+		C38D51B318428507006FFA1E /* Arrows2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C38D51B218428507006FFA1E /* Arrows2.PNG */; };
+		C38D51B518428611006FFA1E /* Arrows3.png in Resources */ = {isa = PBXBuildFile; fileRef = C38D51B418428611006FFA1E /* Arrows3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,7 +131,9 @@
 		C38D51A418418D0E006FFA1E /* LeftSidePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSidePanelViewController.h; sourceTree = "<group>"; };
 		C38D51A518418D23006FFA1E /* LeftSidePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSidePanelViewController.m; sourceTree = "<group>"; };
 		C38D51A718418D3B006FFA1E /* LeftSidePanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftSidePanelViewController.xib; sourceTree = "<group>"; };
-		C38D51A91842689C006FFA1E /* SWIcon2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SWIcon2.jpg; sourceTree = "<group>"; };
+		C38D51B0184281C8006FFA1E /* SWIcon2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SWIcon2.PNG; sourceTree = "<group>"; };
+		C38D51B218428507006FFA1E /* Arrows2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows2.PNG; sourceTree = "<group>"; };
+		C38D51B418428611006FFA1E /* Arrows3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,7 +383,9 @@
 		C36007E21841387B00EA31FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C38D51A91842689C006FFA1E /* SWIcon2.jpg */,
+				C38D51B418428611006FFA1E /* Arrows3.png */,
+				C38D51B218428507006FFA1E /* Arrows2.PNG */,
+				C38D51B0184281C8006FFA1E /* SWIcon2.PNG */,
 				C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */,
 			);
 			name = Images;
@@ -480,7 +486,8 @@
 				76A14D8B18417B7800DE8DE4 /* CreateQuestionViewController.xib in Resources */,
 				76A14D85184159C800DE8DE4 /* ResultsViewController.xib in Resources */,
 				76A14D2A1841045600DE8DE4 /* InfoPlist.strings in Resources */,
-				C38D51AA1842689C006FFA1E /* SWIcon2.jpg in Resources */,
+				C38D51B518428611006FFA1E /* Arrows3.png in Resources */,
+				C38D51B1184281C8006FFA1E /* SWIcon2.PNG in Resources */,
 				C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */,
 				76A14D931841824700DE8DE4 /* AnswerCell.xib in Resources */,
 				C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */,
@@ -488,6 +495,7 @@
 				76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */,
 				76A14D991841868800DE8DE4 /* CreateAnswerViewController.xib in Resources */,
 				C38D51A818418D3B006FFA1E /* LeftSidePanelViewController.xib in Resources */,
+				C38D51B318428507006FFA1E /* Arrows2.PNG in Resources */,
 				76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

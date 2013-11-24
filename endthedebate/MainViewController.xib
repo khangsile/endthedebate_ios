@@ -17,13 +17,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arrows3.png" translatesAutoresizingMaskIntoConstraints="NO" id="ip8-pi-ewT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.1908769323" green="0.77445794570000004" blue="0.98659823800000002" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
                 <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fqS-s2-8Sq">
                     <rect key="frame" x="0.0" y="20.000002560284166" width="320" height="439"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.1908769323" green="0.77445794570000004" blue="0.98659823800000002" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <color key="sectionIndexTrackingBackgroundColor" red="0.1908769323" green="0.77445794570000004" blue="0.98659823800000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexTrackingBackgroundColor" red="0.1908769323" green="0.77445794570000004" blue="0.98659823800000002" alpha="0.5" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="kQe-bQ-Y1k"/>
                         <outlet property="delegate" destination="-1" id="FNZ-Zh-Q0Y"/>
@@ -61,4 +66,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="Arrows3.png" width="2897" height="2897"/>
+    </resources>
 </document>

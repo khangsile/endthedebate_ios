@@ -82,7 +82,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     cell.textLabel.text = question.question;
-    
+    cell.contentView.backgroundColor = [UIColor colorWithRed:49/255.0 green:224/255.0 blue:236/255.0 alpha:.5];
         
     return cell;
 }
