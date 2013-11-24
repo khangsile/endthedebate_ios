@@ -9,10 +9,10 @@
 #import "CreateAnswerViewController.h"
 
 #import "Answer.h"
-
 #import "AnswerCell.h"
-
 #import "KLKeyBoardbar.h"
+
+#import <CoreGraphics/CoreGraphics.h>
 
 #define kAnswerCell @"AnswerCell"
 
@@ -21,6 +21,7 @@
 @property (nonatomic, strong) Question *question;
 @property (nonatomic, strong) NSMutableArray *answers;
 
+@property (nonatomic, strong) IBOutlet UIButton *submitButton;
 @property (nonatomic, strong) IBOutlet UILabel *answerLabel;
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) IBOutlet UITextField *answerField;
@@ -67,6 +68,10 @@
     self.keyboardBar.resizeViews = [NSMutableArray arrayWithArray:@[self.tableview]];
     
     self.answerLabel.text = [self.question question];
+    
+    self.submitButton.layer.cornerRadius = 5.0f;
+    self.submitButton.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.submitButton.layer.borderWidth = 1.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,6 +127,9 @@
 
 - (IBAction)postQuestion:(id)sender
 {
+    
+    if ([self.answers count] == 0) return;
+    
     NSDictionary *params = @{
                              @"content" : self.question.question,
                              @"answers" : self.answers

@@ -36,7 +36,7 @@
     
     CGRect cellFrame = self.frame;
     cellFrame.size.height += difference;
-    self.frame = cellFrame;
+    //self.frame = cellFrame;
 }
 
 @end

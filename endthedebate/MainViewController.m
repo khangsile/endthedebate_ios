@@ -159,7 +159,7 @@
     CGRect tabBarFrame = self.tabBar.frame;
     tabBarFrame.origin.y = 0;
     tabBarFrame.size.height = 49;
-    self.tabBar.frame = tabBarFrame;
+    //self.tabBar.frame = tabBarFrame;
     
     UIWindow *window = [UIApplication sharedApplication].delegate.window;
     
