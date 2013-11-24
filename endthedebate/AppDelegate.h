@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIViewController *viewController;
-@property (strong, nonatomic) FBSession *session;
+
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (void)showLoginView;
 
 @end

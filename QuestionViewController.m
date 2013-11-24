@@ -8,7 +8,10 @@
 
 #import "QuestionViewController.h"
 
+#import "ResultsViewController.h"
+
 #import "Answer.h"
+#import "User.h"
 
 #import "AnswerCell.h"
 
@@ -74,12 +77,20 @@
     RKObjectManager *manager = [RKObjectManager sharedManager];
     NSString *path = [NSString stringWithFormat:@"questions/%d/answers/%d/votes.json", self.question.questionId, answer.answerId];
     
-    [manager postObject:nil path:path parameters:nil
-                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                    [self.navigationController popToRootViewControllerAnimated:NO];
+    NSMutableURLRequest *request = [manager requestWithObject:nil method:RKRequestMethodPOST path:path parameters:nil];
+    [request setValue:[[User activeUser] authToken] forHTTPHeaderField:@"X-AUTH-TOKEN"];
+
+    NSLog(@"%@", [[User activeUser] authToken]);
+    
+    [[manager objectRequestOperationWithRequest:request success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        NSLog(@"%@", operation.HTTPRequestOperation.responseString);
+        NSMutableArray *answers = [NSMutableArray arrayWithArray:[mappingResult array]];
+        
+        [self.navigationController pushViewController:[[ResultsViewController alloc] initWithArray:answers forQuestion:self.question] animated:YES];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Something went wrong");
-    }];
+    }] start];
+    
 }
 
 @end
