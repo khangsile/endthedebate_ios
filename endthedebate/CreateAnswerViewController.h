@@ -10,7 +10,7 @@
 
 #import "Question.h"
 
-@interface CreateAnswerViewController : UIViewController
+@interface CreateAnswerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 - (id)initWithQuestion:(Question*)question;
 

@@ -16,7 +16,7 @@
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping addAttributeMappingsFromDictionary:@{
         @"id" : @"questionId",
-        @"question" : @"question"
+        @"content" : @"question"
     }];
     [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"answers"
                                                                            toKeyPath:@"answers"
@@ -30,7 +30,7 @@
     return [RKResponseDescriptor responseDescriptorWithMapping:[self getObjectMapping]
                                                         method:RKRequestMethodAny
                                                    pathPattern:nil
-                                                       keyPath:nil
+                                                       keyPath:@"question"
                                                    statusCodes:nil];
 }
 
@@ -52,15 +52,18 @@
     
     [manager getObject:nil path:@"questions.json" parameters:dictionary
                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                   NSLog(@"%@", [operation.HTTPRequestOperation responseString]);
                    success([[NSMutableArray alloc] initWithArray:[mappingResult array]]);
     } failure:failure];
 }
 
-- (void)postQuestionWithSuccess:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-                        failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
+- (id)init
 {
-    RKObjectManager *manager = [RKObjectManager sharedManager];
-    [manager postObject:self path:@"questions.json" parameters:nil success:success failure:failure];
+    if (self = [super init]) {
+        self.answers = [[NSMutableArray alloc] init];
+    }
+    
+    return self;
 }
 
 @end

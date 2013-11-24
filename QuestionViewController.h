@@ -9,6 +9,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Question.h"
+
 @interface QuestionViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+- (id)initWithQuestion:(Question*)question;
 
 @end

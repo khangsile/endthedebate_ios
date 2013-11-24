@@ -18,5 +18,6 @@
 + (RKObjectMapping*)getObjectMapping;
 + (RKResponseDescriptor*)getResponseMapping;
 + (RKRequestDescriptor*)getRequestMapping;
++ (void)getQuestions:(NSInteger)page pageSize:(NSInteger)size success:(void(^)(NSMutableArray* questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 @end

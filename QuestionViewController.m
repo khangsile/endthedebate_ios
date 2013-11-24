@@ -8,15 +8,42 @@
 
 #import "QuestionViewController.h"
 
+#import "Answer.h"
+
+#import "AnswerCell.h"
+
+#define kAnswerCell @"AnswerCell"
+
 @interface QuestionViewController()
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, strong) IBOutlet UITextView *textview;
+@property (nonatomic, strong) IBOutlet UILabel *questionLabel;
+
+@property (nonatomic, strong) Question *question;
 
 @end
 
 @implementation QuestionViewController
+
+- (id)initWithQuestion:(Question*)question
+{
+    if (self=[self init]) {
+        self.question = question;
+    }
+    
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    UINib *nib = [UINib nibWithNibName:kAnswerCell bundle:nil];
+    [self.tableview registerNib:nib forCellReuseIdentifier:kAnswerCell];
+    
+    self.questionLabel.text = [self.question question];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -25,12 +52,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return [self.question.answers count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [UITableViewCell new];
+    AnswerCell *cell = (AnswerCell*)[tableView dequeueReusableCellWithIdentifier:kAnswerCell forIndexPath:indexPath];
+    
+    cell.letter.text = [NSString stringWithFormat:@"%c", [indexPath row]+65];
+    
+    Answer *answer = [self.question.answers objectAtIndex:[indexPath row]];
+    cell.answerLabel.text = answer.answer;
+
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 @end

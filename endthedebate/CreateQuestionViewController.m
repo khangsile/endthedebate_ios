@@ -49,4 +49,14 @@
     [self.navigationController pushViewController:[[CreateAnswerViewController alloc] initWithQuestion:self.question] animated:YES];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.textField) {
+        [textField resignFirstResponder];
+        
+        [self submitQuestion:textField];
+    }
+    return NO;
+}
+
 @end

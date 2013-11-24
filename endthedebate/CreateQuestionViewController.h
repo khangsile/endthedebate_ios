@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateQuestionViewController : UIViewController
+@interface CreateQuestionViewController : UIViewController <UITextFieldDelegate>
 
 @end
