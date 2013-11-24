@@ -100,6 +100,7 @@
     QuestionCell *cell = (QuestionCell*)[tableView dequeueReusableCellWithIdentifier:kQuestionCell forIndexPath:indexPath];
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     cell.questionLabel.text = question.question;
+    cell.contentView.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:256/255.0 alpha:.5];
     
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:17];
     CGSize size = [question.question sizeWithFont:font

@@ -66,7 +66,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     cell.textLabel.text = [self.navigationItems objectAtIndex:[indexPath row]];
-    
+    cell.contentView.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:255/255.0 alpha:.5];
     return cell;
 }
 
