@@ -124,13 +124,13 @@
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
     [Question getQuestion:question.questionId forUser:[User activeUser].authToken success:^(Question *question) {
-        if (![question answered]) {
+        //if (![question answered]) {
             QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
             [self.navigationController pushViewController:questionController animated:YES];
-        } else {
+       /* } else {
             ResultsViewController *resultsController = [[ResultsViewController alloc] initWithArray:question.answers forQuestion:question];
             [self.navigationController pushViewController:resultsController animated:YES];
-        }
+        }*/
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Something is going wrong on MainViewController");
         NSLog(@"%@", operation.HTTPRequestOperation.responseString);
