@@ -12,6 +12,7 @@
 @interface User : NSObject
 
 @property (nonatomic) NSUInteger userId;
+@property (nonatomic, strong) NSString *authToken;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *email;
@@ -21,5 +22,8 @@
 + (RKObjectMapping*)getObjectMapping;
 + (RKRequestDescriptor*)getRequestMapping;
 + (RKResponseDescriptor*)getResponseMapping;
-
++ (void)setActiveUser:(User*)user;
++ (User*)activeUser;
++ (void)login:(NSString*)authToken success:(void(^)(User *activeUser))success
+      failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 @end

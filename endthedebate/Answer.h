@@ -12,8 +12,10 @@
 @interface Answer : NSObject
 
 @property (nonatomic) NSUInteger answerId;
+@property (nonatomic) NSUInteger count;
 @property (nonatomic, strong) NSString *answer;
 
 + (RKObjectMapping*)getObjectMapping;
++ (RKResponseDescriptor*)getResponseMapping;
 
 @end

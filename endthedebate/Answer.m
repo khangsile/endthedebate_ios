@@ -15,10 +15,20 @@
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping addAttributeMappingsFromDictionary:@{
         @"id" : @"answerId",
-        @"name" : @"answer"
+        @"name" : @"answer",
+        @"count" : @"count"
     }];
     
     return mapping;
+}
+
++ (RKResponseDescriptor*)getResponseMapping
+{
+    return [RKResponseDescriptor responseDescriptorWithMapping:[self getObjectMapping]
+                                                        method:RKRequestMethodAny
+                                                   pathPattern:nil
+                                                       keyPath:@"answer"
+                                                   statusCodes:nil];
 }
 
 @end

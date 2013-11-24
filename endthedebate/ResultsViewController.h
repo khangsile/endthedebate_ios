@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "Question.h"
+
+#import "XYPieChart.h"
+
+@interface ResultsViewController : UIViewController <XYPieChartDataSource, XYPieChartDelegate>
+
+- (id)initWithArray:(NSMutableArray*)answers forQuestion:(Question*)question;
 
 @end

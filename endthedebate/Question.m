@@ -52,7 +52,6 @@
     
     [manager getObject:nil path:@"questions.json" parameters:dictionary
                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                   NSLog(@"%@", [operation.HTTPRequestOperation responseString]);
                    success([[NSMutableArray alloc] initWithArray:[mappingResult array]]);
     } failure:failure];
 }
