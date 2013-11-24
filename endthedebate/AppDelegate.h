@@ -21,5 +21,7 @@
 
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 - (void)showLoginView;
+- (void)closeSession;
+
 
 @end

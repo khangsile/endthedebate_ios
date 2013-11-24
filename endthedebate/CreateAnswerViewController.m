@@ -12,6 +12,8 @@
 
 #import "AnswerCell.h"
 
+#import "KLKeyBoardbar.h"
+
 #define kAnswerCell @"AnswerCell"
 
 @interface CreateAnswerViewController ()
@@ -22,6 +24,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *answerLabel;
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) IBOutlet UITextField *answerField;
+@property (nonatomic, strong) IBOutlet KLKeyboardBar *keyboardBar;
 
 @end
 
@@ -60,6 +63,8 @@
     
     UINib *nib = [UINib nibWithNibName:kAnswerCell bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:kAnswerCell];
+    
+    self.keyboardBar.resizeViews = [NSMutableArray arrayWithArray:@[self.tableview]];
     
     self.answerLabel.text = [self.question question];
 }

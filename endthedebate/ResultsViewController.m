@@ -8,6 +8,8 @@
 
 #import "ResultsViewController.h"
 
+#import <Social/Social.h>
+
 #import "Answer.h"
 
 @interface ResultsViewController ()
@@ -46,11 +48,17 @@
     [super viewDidLoad];
 
     self.questionLabel.text = self.question.question;
+    
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationItem.hidesBackButton = YES;
 
     [self.pieChart setDelegate:self];
     [self.pieChart setDataSource:self];
     [self.pieChart setAnimationSpeed:1.0];
     [self.pieChart setLabelColor:[UIColor blackColor]];
+    [self.pieChart setShowLabel:YES];
+    [self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];	//optional
+
     
     self.sliceColors =[NSArray arrayWithObjects:
                        [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
@@ -63,6 +71,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.pieChart reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,6 +114,43 @@
 - (IBAction)toHome:(id)sender
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+- (IBAction)shareToFacebook:(id)sender
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+        SLComposeViewController *social =
+        [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result) {
+            [social dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+        };
+        [social setCompletionHandler:completionHandler];
+        
+        UIImage *screenShot = [self screenShot];
+        
+        
+        [social addImage:screenShot];
+        [self presentViewController:social animated:YES completion:nil];
+    }
+}
+
+#pragma mark - Helper
+
+- (UIImage*)screenShot
+{
+    CGRect frame = self.view.frame;
+    frame.size.height = self.pieChart.frame.size.height + self.pieChart.frame.origin.y + 20;
+    
+    UIGraphicsBeginImageContext(frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.view.layer renderInContext:context];
+    UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return screenShot;
 }
 
 @end
