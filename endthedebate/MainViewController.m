@@ -50,13 +50,13 @@
     [self.searchBar setResizeViews:resizeViews];
     
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+}
 
-    [Question getQuestions:0 pageSize:0 success:^(NSMutableArray *questions) {
-        [self.questions addObjectsFromArray:questions];
-        [self.tableview reloadData];
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        NSLog(@"Something went wrong");
-    }];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self loadQuestions];
 }
 
 - (void)didReceiveMemoryWarning
@@ -134,6 +134,19 @@
 - (IBAction)search:(id)sender
 {
     [self.sidePanelController showLeftPanelAnimated:YES];
+}
+
+#pragma mark - Helper
+
+- (void)loadQuestions
+{
+    [Question getQuestions:0 pageSize:0 success:^(NSMutableArray *questions) {
+        [self.questions removeAllObjects];
+        [self.questions addObjectsFromArray:questions];
+        [self.tableview reloadData];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Something went wrong");
+    }];
 }
 
 @end

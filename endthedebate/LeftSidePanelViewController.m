@@ -6,9 +6,12 @@
 //  Copyright (c) 2013 Khang Le. All rights reserved.
 //
 
-
-
 #import "LeftSidePanelViewController.h"
+
+#import "CreateQuestionViewController.h"
+
+#import <JASidePanelController.h>
+#import <UIViewController+JASidePanel.h>
 
 @interface LeftSidePanelViewController()
 
@@ -25,17 +28,17 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [NSArray arrayWithObjects: @"Submit a Question", @"Log Out",nil];
+        self.navigationItems = [[NSMutableArray alloc] initWithArray:@[@"Submit a Question", @"Logout"]];
     }
+    
     return self;
-    
-    
-    
 }
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     
+    [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,57 +48,36 @@
 
 #pragma mark - UITableView Delegate
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 3;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.navigationItems count];
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [UITableViewCell new];
-    cell.textLabel.text = @"Question";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.textLabel.text = [self.navigationItems objectAtIndex:[indexPath row]];
+    
     return cell;
 }
 
-#pragma mark - UITextField Delegate
-
-/**- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    if (textField == self.textField) {
-        [textField resignFirstResponder];
-    }
-    return NO;
-}*/
-
-#pragma mark - ViewSetUp
-
-/**
- Nib files are the fucking worst
- */
-- (void)setUpView
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /**CGRect tabBarFrame = self.tabBar.frame;
-    tabBarFrame.origin.y = 0;
-    tabBarFrame.size.height = 49;
-    self.tabBar.frame = tabBarFrame;
-    
-    UIWindow *window = [UIApplication sharedApplication].delegate.window;
-    
-    CGRect searchBarFrame = self.searchBar.frame;
-    searchBarFrame.origin.y =  window.frame.size.height - searchBarFrame.size.height;
-    //self.searchBar.frame = searchBarFrame;
-    
-    CGRect tableviewFrame = self.tableview.frame;
-    tableviewFrame.origin.y = self.tabBar.frame.size.height;
-    tableviewFrame.size.height = searchBarFrame.origin.y - tabBarFrame.origin.y;
-    self.tableview.frame = tableviewFrame;*/
+    switch ([indexPath row]) {
+        case 0:
+            [(UINavigationController*) self.sidePanelController.centerPanel pushViewController:[CreateQuestionViewController new] animated:YES];
+            [self.sidePanelController showCenterPanelAnimated:YES];
+            break;
+        case 1:
+            break;
+        default:
+            break;
+    }
 }
-
-#pragma mark - Buttons
 
 @end

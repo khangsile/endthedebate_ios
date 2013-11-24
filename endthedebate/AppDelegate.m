@@ -10,7 +10,7 @@
 
 #import "LoginViewController.h"
 #import "MainViewController.h"
-#import "QuestionViewController.h"
+#import "LeftSidePanelViewController.h"
 
 //Models
 #import "User.h"
@@ -35,7 +35,7 @@
     JASidePanelController *jaController = [[JASidePanelController alloc] init];
     
     UINavigationController *mainController = [[UINavigationController alloc] initWithRootViewController:[[MainViewController alloc] init]];
-    jaController.leftPanel = [[QuestionViewController alloc] init];
+    jaController.leftPanel = [[LeftSidePanelViewController alloc] init];
     jaController.centerPanel = mainController;
     
     self.viewController = ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) ?

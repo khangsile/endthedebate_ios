@@ -69,7 +69,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Answer *answer = [self.question.answers objectAtIndex:[indexPath row]];
     
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    NSString *path = [NSString stringWithFormat:@"questions/%d/answers/%d/votes.json", self.question.questionId, answer.answerId];
+    
+    [manager postObject:nil path:path parameters:nil
+                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                    [self.navigationController popToRootViewControllerAnimated:NO];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Something went wrong");
+    }];
 }
 
 @end
