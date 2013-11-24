@@ -37,6 +37,12 @@
 		76A14D7818412CB500DE8DE4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D7718412CB500DE8DE4 /* FacebookSDK.framework */; };
 		76A14D84184159C800DE8DE4 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D82184159C800DE8DE4 /* ResultsViewController.m */; };
 		76A14D85184159C800DE8DE4 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D83184159C800DE8DE4 /* ResultsViewController.xib */; };
+		76A14D8A18417B7800DE8DE4 /* CreateQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D8818417B7800DE8DE4 /* CreateQuestionViewController.m */; };
+		76A14D8B18417B7800DE8DE4 /* CreateQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D8918417B7800DE8DE4 /* CreateQuestionViewController.xib */; };
+		76A14D911841823500DE8DE4 /* AnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D901841823500DE8DE4 /* AnswerCell.m */; };
+		76A14D931841824700DE8DE4 /* AnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D921841824700DE8DE4 /* AnswerCell.xib */; };
+		76A14D981841868800DE8DE4 /* CreateAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D961841868800DE8DE4 /* CreateAnswerViewController.m */; };
+		76A14D991841868800DE8DE4 /* CreateAnswerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D971841868800DE8DE4 /* CreateAnswerViewController.xib */; };
 		C36007E118412B6400EA31FE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
 		C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */ = {isa = PBXBuildFile; fileRef = C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */; };
 		C36007F218414DFE00EA31FE /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36007F018414DFE00EA31FE /* QuestionViewController.m */; };
@@ -97,6 +103,15 @@
 		76A14D81184159C800DE8DE4 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
 		76A14D82184159C800DE8DE4 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		76A14D83184159C800DE8DE4 /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
+		76A14D8718417B7800DE8DE4 /* CreateQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateQuestionViewController.h; sourceTree = "<group>"; };
+		76A14D8818417B7800DE8DE4 /* CreateQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateQuestionViewController.m; sourceTree = "<group>"; };
+		76A14D8918417B7800DE8DE4 /* CreateQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateQuestionViewController.xib; sourceTree = "<group>"; };
+		76A14D8F1841823500DE8DE4 /* AnswerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerCell.h; sourceTree = "<group>"; };
+		76A14D901841823500DE8DE4 /* AnswerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerCell.m; sourceTree = "<group>"; };
+		76A14D921841824700DE8DE4 /* AnswerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerCell.xib; sourceTree = "<group>"; };
+		76A14D951841868800DE8DE4 /* CreateAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAnswerViewController.h; sourceTree = "<group>"; };
+		76A14D961841868800DE8DE4 /* CreateAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAnswerViewController.m; sourceTree = "<group>"; };
+		76A14D971841868800DE8DE4 /* CreateAnswerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAnswerViewController.xib; sourceTree = "<group>"; };
 		C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 851565_207329966095351_137697998_n.png; sourceTree = "<group>"; };
 		C36007EF18414DFE00EA31FE /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		C36007F018414DFE00EA31FE /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
@@ -177,6 +192,8 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
+				76A14D941841865F00DE8DE4 /* CreateAnswerController */,
+				76A14D8D184180D400DE8DE4 /* CreateQuestionController */,
 				76A14D7D1841592600DE8DE4 /* ResultsController */,
 				76A14D5E1841116300DE8DE4 /* MainController */,
 				C36007EE18414DDE00EA31FE /* QuestionViewController */,
@@ -297,6 +314,37 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		76A14D8D184180D400DE8DE4 /* CreateQuestionController */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D8718417B7800DE8DE4 /* CreateQuestionViewController.h */,
+				76A14D8818417B7800DE8DE4 /* CreateQuestionViewController.m */,
+				76A14D8918417B7800DE8DE4 /* CreateQuestionViewController.xib */,
+			);
+			name = CreateQuestionController;
+			sourceTree = "<group>";
+		};
+		76A14D8E1841821100DE8DE4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D8F1841823500DE8DE4 /* AnswerCell.h */,
+				76A14D901841823500DE8DE4 /* AnswerCell.m */,
+				76A14D921841824700DE8DE4 /* AnswerCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		76A14D941841865F00DE8DE4 /* CreateAnswerController */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D951841868800DE8DE4 /* CreateAnswerViewController.h */,
+				76A14D961841868800DE8DE4 /* CreateAnswerViewController.m */,
+				76A14D971841868800DE8DE4 /* CreateAnswerViewController.xib */,
+				76A14D8E1841821100DE8DE4 /* Cell */,
+			);
+			name = CreateAnswerController;
+			sourceTree = "<group>";
+		};
 		C36007E21841387B00EA31FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,12 +445,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A14D8B18417B7800DE8DE4 /* CreateQuestionViewController.xib in Resources */,
 				76A14D85184159C800DE8DE4 /* ResultsViewController.xib in Resources */,
 				76A14D2A1841045600DE8DE4 /* InfoPlist.strings in Resources */,
 				C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */,
+				76A14D931841824700DE8DE4 /* AnswerCell.xib in Resources */,
 				C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */,
 				76A14D321841045600DE8DE4 /* Images.xcassets in Resources */,
 				76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */,
+				76A14D991841868800DE8DE4 /* CreateAnswerViewController.xib in Resources */,
 				76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,9 +508,12 @@
 				C36007F218414DFE00EA31FE /* QuestionViewController.m in Sources */,
 				76A14D301841045600DE8DE4 /* AppDelegate.m in Sources */,
 				76A14D7018411A0500DE8DE4 /* User.m in Sources */,
+				76A14D911841823500DE8DE4 /* AnswerCell.m in Sources */,
 				76A14D2C1841045600DE8DE4 /* main.m in Sources */,
+				76A14D8A18417B7800DE8DE4 /* CreateQuestionViewController.m in Sources */,
 				76A14D5218410A7500DE8DE4 /* LoginViewController.m in Sources */,
 				76A14D84184159C800DE8DE4 /* ResultsViewController.m in Sources */,
+				76A14D981841868800DE8DE4 /* CreateAnswerViewController.m in Sources */,
 				76A14D6A1841174C00DE8DE4 /* KLTextView.m in Sources */,
 				76A14D7318411A1100DE8DE4 /* Question.m in Sources */,
 				76A14D62184113C500DE8DE4 /* MainViewController.m in Sources */,

@@ -19,17 +19,27 @@
 
 #import <RestKit.h>
 
+#import <JASidePanels/UIViewController+JASidePanel.h>
+#import <JASidePanelController.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setUpRestKit];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-
-    self.viewController = (self.session.isOpen) ? [[MainViewController alloc] init] : [[LoginViewController alloc] init];
+    [self setUpRestKit];
+    [self setSession:[FBSession activeSession]];
+    
+    
+    JASidePanelController *jaController = [[JASidePanelController alloc] init];
+    
+    UINavigationController *mainController = [[UINavigationController alloc] initWithRootViewController:[[MainViewController alloc] init]];
+    jaController.leftPanel = [[QuestionViewController alloc] init];
+    jaController.centerPanel = mainController;
+    
+    self.viewController = ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) ?
+        jaController : [[LoginViewController alloc] init];
     self.window.rootViewController = self.viewController;
     
     [self.window makeKeyAndVisible];
@@ -86,12 +96,13 @@
  */
 - (void)setUpRestKit
 {
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.168.1.116:3000/api"]];
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://disputed.herokuapp.com/api"]];
     [manager.HTTPClient setDefaultHeader:@"CONTENT-TYPE" value:@"application/json"];
 
     //Set request/response descriptors
     [manager addResponseDescriptor:[User getResponseMapping]];
     [manager addResponseDescriptor:[Question getResponseMapping]];
+    [manager addRequestDescriptor:[Question getRequestMapping]];
     
     [RKObjectManager setSharedManager:manager];
 }

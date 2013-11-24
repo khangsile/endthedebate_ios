@@ -8,7 +8,12 @@
 
 #import "MainViewController.h"
 
+#import "QuestionViewController.h"
+
 #import "KLKeyBoardbar.h"
+
+#import <UIViewController+JASidePanel.h>
+#import <JASidePanelController.h>
 
 @interface MainViewController ()
 
@@ -16,6 +21,8 @@
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) IBOutlet KLKeyboardBar *searchBar;
 @property (nonatomic, strong) IBOutlet UITextField *textField;
+
+@property (nonatomic, strong) NSMutableArray *questions;
 
 @end
 
@@ -33,7 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.title = @"Disputed";
+    self.sidePanelController.leftPanel = [[UIViewController alloc] init];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setUpView];
     NSMutableArray *resizeViews = [[NSMutableArray alloc] initWithArray:@[self.tableview]];
     [self.searchBar setResizeViews:resizeViews];
@@ -63,6 +72,12 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    QuestionViewController *questionController = [[QuestionViewController alloc] init];
+    [self.navigationController pushViewController:questionController animated:YES];
+}
+
 #pragma mark - UITextField Delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -80,14 +95,28 @@
  */
 - (void)setUpView
 {
-    CGRect tabBarFrame = self.tableview.frame;
+    CGRect tabBarFrame = self.tabBar.frame;
     tabBarFrame.origin.y = 0;
     tabBarFrame.size.height = 49;
     self.tabBar.frame = tabBarFrame;
     
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    
+    CGRect searchBarFrame = self.searchBar.frame;
+    searchBarFrame.origin.y =  window.frame.size.height - searchBarFrame.size.height;
+    //self.searchBar.frame = searchBarFrame;
+    
     CGRect tableviewFrame = self.tableview.frame;
     tableviewFrame.origin.y = self.tabBar.frame.size.height;
+    tableviewFrame.size.height = searchBarFrame.origin.y - tabBarFrame.origin.y;
     self.tableview.frame = tableviewFrame;
+}
+
+#pragma mark - Buttons
+
+- (IBAction)search:(id)sender
+{
+    [self.sidePanelController showLeftPanelAnimated:YES];
 }
 
 @end
