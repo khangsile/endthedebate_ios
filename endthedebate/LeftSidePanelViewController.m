@@ -9,8 +9,10 @@
 #import "LeftSidePanelViewController.h"
 
 #import "AppDelegate.h"
+
 #import "LoginViewController.h"
 #import "CreateQuestionViewController.h"
+#import "HistoryViewController.h"
 
 #import <JASidePanelController.h>
 #import <UIViewController+JASidePanel.h>
@@ -30,7 +32,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationItems = [[NSMutableArray alloc] initWithArray:@[@"Submit a Question", @"Logout"]];
+        self.navigationItems = [[NSMutableArray alloc] initWithArray:@[@"Submit a Question", @"History", @"Logout"]];
     }
     
     return self;
@@ -73,9 +75,13 @@
     switch ([indexPath row]) {
         case 0:
             [(UINavigationController*) self.sidePanelController.centerPanel pushViewController:[CreateQuestionViewController new] animated:YES];
-            [self.sidePanelController showCenterPanelAnimated:YES];
             break;
         case 1: {
+            [(UINavigationController*) self.sidePanelController.centerPanel
+             pushViewController:[HistoryViewController new] animated:YES];
+        }
+            break;
+        case 2: {
             AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
             [delegate closeSession];
         }
@@ -83,6 +89,7 @@
         default:
             break;
     }
+    [self.sidePanelController showCenterPanelAnimated:YES];
 }
 
 @end

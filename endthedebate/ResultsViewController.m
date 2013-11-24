@@ -172,7 +172,6 @@
 - (UIImage*)screenShot
 {
     CGRect frame = self.view.frame;
-    frame.size.height = self.pieChart.frame.size.height + self.pieChart.frame.origin.y + 20;
     
     UIGraphicsBeginImageContext(frame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
