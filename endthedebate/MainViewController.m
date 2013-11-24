@@ -14,10 +14,14 @@
 #import "Question.h"
 #import "User.h"
 
+#import "QuestionCell.h"
+
 #import "KLKeyBoardbar.h"
 
 #import <UIViewController+JASidePanel.h>
 #import <JASidePanelController.h>
+
+#define kQuestionCell @"QuestionCell"
 
 @interface MainViewController ()
 
@@ -50,7 +54,8 @@
     NSMutableArray *resizeViews = [[NSMutableArray alloc] initWithArray:@[self.tableview]];
     [self.searchBar setResizeViews:resizeViews];
     
-    [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    UINib *nib = [UINib nibWithNibName:kQuestionCell bundle:nil];
+    [self.tableview registerNib:nib forCellReuseIdentifier:kQuestionCell];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,13 +82,40 @@
     return [self.questions count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Question *question = [self.questions objectAtIndex:[indexPath row]];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:17];
+    CGSize size = [question.question sizeWithFont:font
+                               constrainedToSize:CGSizeMake(kQuestionLabelWidth, kQuestionLabelWidth)
+                                   lineBreakMode:NSLineBreakByWordWrapping];
+    
+    CGFloat difference = size.height - kQuestionLabelHeight;
+    
+    return kQuestionCellHeight + difference;
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    QuestionCell *cell = (QuestionCell*)[tableView dequeueReusableCellWithIdentifier:kQuestionCell forIndexPath:indexPath];
     Question *question = [self.questions objectAtIndex:[indexPath row]];
-    cell.textLabel.text = question.question;
+    cell.questionLabel.text = question.question;
     
-        
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:17];
+    CGSize size = [question.question sizeWithFont:font
+                                constrainedToSize:CGSizeMake(kQuestionLabelWidth, kQuestionLabelWidth)
+                                    lineBreakMode:NSLineBreakByWordWrapping];
+    
+    CGFloat difference = size.height - kQuestionLabelHeight;
+    
+    CGSize frame = cell.questionLabel.frame.size;
+    frame.height =  kQuestionCellHeight + difference;
+    
+    [cell setCellToSize:frame];
+
+    cell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.questionLabel.numberOfLines = 0;
+
     return cell;
 }
 

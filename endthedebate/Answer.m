@@ -16,7 +16,7 @@
     [mapping addAttributeMappingsFromDictionary:@{
         @"id" : @"answerId",
         @"name" : @"answer",
-        @"count" : @"count"
+        @"votes_count" : @"count"
     }];
     
     return mapping;

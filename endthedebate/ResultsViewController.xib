@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultsViewController">
             <connections>
+                <outlet property="collectionview" destination="mdJ-aC-A44" id="YaM-ky-jI5"/>
                 <outlet property="pieChart" destination="rwF-PJ-EJB" id="jDr-ty-eEO"/>
                 <outlet property="questionLabel" destination="Mus-7s-Tiy" id="F56-sl-1T3"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -51,6 +52,22 @@
                         <action selector="shareToFacebook:" destination="-1" eventType="touchUpInside" id="0jY-jl-lD5"/>
                     </connections>
                 </button>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mdJ-aC-A44">
+                    <rect key="frame" x="10" y="59" width="296" height="53"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="wDs-KZ-pzG">
+                        <size key="itemSize" width="65" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="f9N-F1-n1y"/>
+                        <outlet property="delegate" destination="-1" id="H3j-yx-1Wj"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="0.1908769323" green="0.77445794570000004" blue="0.98659823800000002" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

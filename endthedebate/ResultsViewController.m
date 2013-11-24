@@ -11,9 +11,13 @@
 #import <Social/Social.h>
 
 #import "Answer.h"
+#import "LegendCell.h"
+
+#define kLegendCell @"LegendCell"
 
 @interface ResultsViewController ()
 
+@property (nonatomic, strong) IBOutlet UICollectionView *collectionview;
 @property (nonatomic, strong) IBOutlet XYPieChart *pieChart;
 @property (nonatomic, strong) IBOutlet UILabel *questionLabel;
 
@@ -66,6 +70,9 @@
                        [UIColor colorWithRed:62/255.0 green:173/255.0 blue:219/255.0 alpha:1],
                        [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],
                        [UIColor colorWithRed:148/255.0 green:141/255.0 blue:139/255.0 alpha:1],nil];
+    
+    UINib *nib = [UINib nibWithNibName:kLegendCell bundle:nil];
+    [self.collectionview registerNib:nib forCellWithReuseIdentifier:kLegendCell];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -135,6 +142,29 @@
         [social addImage:screenShot];
         [self presentViewController:social animated:YES completion:nil];
     }
+}
+
+#pragma mark - UICollectionView Delegate
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.answers count];
+}
+
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Answer *answer = [self.answers objectAtIndex:[indexPath row]];
+    
+    LegendCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kLegendCell forIndexPath:indexPath];
+    cell.answerLabel.text = answer.answer;
+    cell.colorView.backgroundColor = [self.sliceColors objectAtIndex:[indexPath row]];
+    
+    return cell;
 }
 
 #pragma mark - Helper

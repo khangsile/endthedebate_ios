@@ -12,7 +12,7 @@
 
 #import "XYPieChart.h"
 
-@interface ResultsViewController : UIViewController <XYPieChartDataSource, XYPieChartDelegate>
+@interface ResultsViewController : UIViewController <XYPieChartDataSource, XYPieChartDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 - (id)initWithArray:(NSMutableArray*)answers forQuestion:(Question*)question;
 
