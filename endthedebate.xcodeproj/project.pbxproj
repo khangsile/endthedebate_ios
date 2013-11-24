@@ -47,6 +47,8 @@
 		C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */ = {isa = PBXBuildFile; fileRef = C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */; };
 		C36007F218414DFE00EA31FE /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36007F018414DFE00EA31FE /* QuestionViewController.m */; };
 		C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36007F61841572200EA31FE /* QuestionViewController.xib */; };
+		C38D51A618418D23006FFA1E /* LeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38D51A518418D23006FFA1E /* LeftSidePanelViewController.m */; };
+		C38D51A818418D3B006FFA1E /* LeftSidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38D51A718418D3B006FFA1E /* LeftSidePanelViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,9 @@
 		C36007EF18414DFE00EA31FE /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		C36007F018414DFE00EA31FE /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		C36007F61841572200EA31FE /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		C38D51A418418D0E006FFA1E /* LeftSidePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSidePanelViewController.h; sourceTree = "<group>"; };
+		C38D51A518418D23006FFA1E /* LeftSidePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSidePanelViewController.m; sourceTree = "<group>"; };
+		C38D51A718418D3B006FFA1E /* LeftSidePanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftSidePanelViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +284,9 @@
 		76A14D6C1841195500DE8DE4 /* LeftSidePanel */ = {
 			isa = PBXGroup;
 			children = (
+				C38D51A418418D0E006FFA1E /* LeftSidePanelViewController.h */,
+				C38D51A518418D23006FFA1E /* LeftSidePanelViewController.m */,
+				C38D51A718418D3B006FFA1E /* LeftSidePanelViewController.xib */,
 			);
 			name = LeftSidePanel;
 			sourceTree = "<group>";
@@ -454,6 +462,7 @@
 				76A14D321841045600DE8DE4 /* Images.xcassets in Resources */,
 				76A14D5318410A7500DE8DE4 /* LoginViewController.xib in Resources */,
 				76A14D991841868800DE8DE4 /* CreateAnswerViewController.xib in Resources */,
+				C38D51A818418D3B006FFA1E /* LeftSidePanelViewController.xib in Resources */,
 				76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +528,7 @@
 				76A14D62184113C500DE8DE4 /* MainViewController.m in Sources */,
 				76A14D7618411A2700DE8DE4 /* Answer.m in Sources */,
 				76A14D6B1841174C00DE8DE4 /* KLKeyboardBar.m in Sources */,
+				C38D51A618418D23006FFA1E /* LeftSidePanelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,9 +18,6 @@
 
 @implementation QuestionViewController
 
-<<<<<<< HEAD
-@end
-=======
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -35,6 +32,5 @@
 {
     return [UITableViewCell new];
 }
->>>>>>> 74ebaea8ae781071b578391116b7bab5ed7bcac8
 
 @end
