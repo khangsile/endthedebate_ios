@@ -18,7 +18,5 @@
 
 @implementation QuestionViewController
 
-
-
 @end
 
