@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="answerField" destination="nkG-D8-bem" id="VV8-lz-pWk"/>
                 <outlet property="answerLabel" destination="5ea-T5-JUX" id="JIi-Fd-Yva"/>
+                <outlet property="keyboardBar" destination="IOR-4i-Hrb" id="4sX-sL-hAy"/>
                 <outlet property="tableview" destination="NfH-or-FDr" id="Jp5-1S-vWQ"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -51,7 +52,7 @@
                         <outlet property="delegate" destination="-1" id="2l8-aC-sI9"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOR-4i-Hrb">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOR-4i-Hrb" customClass="KLKeyboardBar">
                     <rect key="frame" x="0.0" y="568" width="320" height="0.0"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

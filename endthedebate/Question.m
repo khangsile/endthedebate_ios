@@ -16,7 +16,8 @@
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class]];
     [mapping addAttributeMappingsFromDictionary:@{
         @"id" : @"questionId",
-        @"content" : @"question"
+        @"content" : @"question",
+        @"answered" : @"answered"
     }];
     [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"answers"
                                                                            toKeyPath:@"answers"
@@ -54,6 +55,27 @@
                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                    success([[NSMutableArray alloc] initWithArray:[mappingResult array]]);
     } failure:failure];
+}
+
++ (void)getQuestion:(NSInteger)questionId forUser:(NSString*)authToken success:(void(^)(Question *question))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    
+    NSString *path = [NSString stringWithFormat:@"questions/%d.json", questionId];
+    
+    NSMutableURLRequest *request = [manager requestWithObject:nil
+                                                       method:RKRequestMethodGET
+                                                         path:path
+                                                   parameters:nil];
+    [request setValue:authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
+    
+    RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
+        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            NSLog(@"%@", operation.HTTPRequestOperation.responseString);
+            success([mappingResult firstObject]);
+        } failure:failure];
+    
+    [operation start];
 }
 
 - (id)init

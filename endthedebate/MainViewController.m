@@ -9,9 +9,10 @@
 #import "MainViewController.h"
 
 #import "QuestionViewController.h"
-#import "CreateQuestionViewController.h"
+#import "ResultsViewController.h"
 
 #import "Question.h"
+#import "User.h"
 
 #import "KLKeyBoardbar.h"
 
@@ -89,8 +90,18 @@
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
-    QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
-    [self.navigationController pushViewController:questionController animated:YES];
+    [Question getQuestion:question.questionId forUser:[User activeUser].authToken success:^(Question *question) {
+        if (![question answered]) {
+            QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
+            [self.navigationController pushViewController:questionController animated:YES];
+        } else {
+            ResultsViewController *resultsController = [[ResultsViewController alloc] initWithArray:question.answers forQuestion:question];
+            [self.navigationController pushViewController:resultsController animated:YES];
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Something is going wrong on MainViewController");
+        NSLog(@"%@", operation.HTTPRequestOperation.responseString);
+    }];
 }
 
 #pragma mark - UITextField Delegate

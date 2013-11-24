@@ -8,6 +8,8 @@
 
 #import "LeftSidePanelViewController.h"
 
+#import "AppDelegate.h"
+#import "LoginViewController.h"
 #import "CreateQuestionViewController.h"
 
 #import <JASidePanelController.h>
@@ -73,7 +75,10 @@
             [(UINavigationController*) self.sidePanelController.centerPanel pushViewController:[CreateQuestionViewController new] animated:YES];
             [self.sidePanelController showCenterPanelAnimated:YES];
             break;
-        case 1:
+        case 1: {
+            AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+            [delegate closeSession];
+        }
             break;
         default:
             break;
