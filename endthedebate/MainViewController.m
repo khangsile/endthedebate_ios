@@ -22,15 +22,23 @@
 #import <JASidePanelController.h>
 
 #define kQuestionCell @"QuestionCell"
+#define kNoPerPage 5
 
 @interface MainViewController ()
 
-@property (nonatomic, strong) IBOutlet UITabBar *tabBar;
-@property (nonatomic, strong) IBOutlet UITableView *tableview;
-@property (nonatomic, strong) IBOutlet KLKeyboardBar *searchBar;
-@property (nonatomic, strong) IBOutlet UITextField *textField;
+@property (nonatomic, strong) IBOutlet UITabBar *tabBar; //tab bar
+@property (nonatomic, strong) IBOutlet UITableView *tableview; // tableview
+@property (nonatomic, strong) IBOutlet KLKeyboardBar *searchBar; // search
+@property (nonatomic, strong) IBOutlet UITextField *textField; // search
 
-@property (nonatomic, strong) NSMutableArray *questions;
+@property (nonatomic, strong) QuestionCell *offscreenCell; // dynamic cell sizes
+
+@property (nonatomic, strong) NSMutableArray *questions; // table view data source
+
+@property (nonatomic) NSUInteger pageNo; //pagination
+@property (nonatomic, strong) NSString *sortBy; //pagination
+@property (atomic) BOOL isLoading;
+@property (nonatomic) BOOL isEmpty;
 
 @end
 
@@ -40,7 +48,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Disputed";
+        self.title = @"End the Debate";
+        self.sortBy = @"trending";
+        self.pageNo = 0;
+        self.isLoading = NO;
+        self.isEmpty = NO;
         self.questions = [[NSMutableArray alloc] init];
     }
     return self;
@@ -56,6 +68,7 @@
     
     UINib *nib = [UINib nibWithNibName:kQuestionCell bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:kQuestionCell];
+    self.offscreenCell = [self.tableview dequeueReusableCellWithIdentifier:kQuestionCell];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -85,14 +98,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:17];
-    CGSize size = [question.question sizeWithFont:font
-                               constrainedToSize:CGSizeMake(kQuestionLabelWidth, kQuestionLabelWidth)
-                                   lineBreakMode:NSLineBreakByWordWrapping];
     
-    CGFloat difference = size.height - kQuestionLabelHeight;
-    
-    return kQuestionCellHeight + difference;
+    [self.offscreenCell.questionLabel setText:question.question];
+    [self.offscreenCell layoutSubviews];
+    return MAX(self.offscreenCell.requiredCellHeight, kQuestionCellHeight);
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,20 +110,14 @@
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     cell.questionLabel.text = question.question;
     
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:17];
-    CGSize size = [question.question sizeWithFont:font
-                                constrainedToSize:CGSizeMake(kQuestionLabelWidth, kQuestionLabelWidth)
-                                    lineBreakMode:NSLineBreakByWordWrapping];
-    
-    CGFloat difference = size.height - kQuestionLabelHeight;
-    
-    CGSize frame = cell.questionLabel.frame.size;
-    frame.height =  kQuestionCellHeight + difference;
-    
-    [cell setCellToSize:frame];
-
     cell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.questionLabel.numberOfLines = 0;
+    
+    if ([self.questions count] - [indexPath row] < 3 && !self.isLoading && !self.isEmpty) {
+        self.isLoading = YES;
+        self.pageNo++;
+        [self loadQuestions];
+    }
 
     return cell;
 }
@@ -124,17 +127,28 @@
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
     [Question getQuestion:question.questionId forUser:[User activeUser].authToken success:^(Question *question) {
-        //if (![question answered]) {
+        if (![question answered]) {
             QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
             [self.navigationController pushViewController:questionController animated:YES];
-       /* } else {
+        } else {
             ResultsViewController *resultsController = [[ResultsViewController alloc] initWithArray:question.answers forQuestion:question];
             [self.navigationController pushViewController:resultsController animated:YES];
-        }*/
+        }
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Something is going wrong on MainViewController");
         NSLog(@"%@", operation.HTTPRequestOperation.responseString);
     }];
+}
+
+#pragma mark - UITabBar Delegate
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    self.sortBy = [item.title lowercaseString];
+    [self.questions removeAllObjects];
+    self.isEmpty = NO;
+    self.pageNo = 0;
+    [self loadQuestions];
 }
 
 #pragma mark - UITextField Delegate
@@ -149,9 +163,6 @@
 
 #pragma mark - ViewSetUp
 
-/**
- Nib files are the fucking worst
- */
 - (void)setUpView
 {
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -184,13 +195,25 @@
 
 - (void)loadQuestions
 {
-    [Question getQuestions:0 pageSize:0 success:^(NSMutableArray *questions) {
-        [self.questions removeAllObjects];
-        [self.questions addObjectsFromArray:questions];
+    [Question getQuestions:self.pageNo pageSize:kNoPerPage sortBy:self.sortBy success:^(NSMutableArray *questions) {
+        if ([questions count] == 0) self.isEmpty = YES;
+        
+        for (Question *question in questions) [self addQuestion:question]; //necessary for avoiding duplicates
+
+        self.isLoading = NO;
         [self.tableview reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Something went wrong");
     }];
+}
+
+- (void)addQuestion:(Question*)question
+{
+    for (Question *_question in self.questions) {
+        if (question.questionId == _question.questionId) return;
+    }
+    
+    [self.questions addObject:question];
 }
 
 @end

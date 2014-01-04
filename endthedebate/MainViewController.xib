@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="searchBar" destination="bLP-wm-R2F" id="KSB-Q0-jyX"/>
+                <outlet property="tabBar" destination="du0-J9-ygD" id="cid-bL-g1P"/>
                 <outlet property="tableview" destination="fqS-s2-8Sq" id="phe-Wf-Lox"/>
                 <outlet property="textField" destination="tjD-mu-tLi" id="elc-uo-lTO"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -18,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
                 <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fqS-s2-8Sq">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="461"/>
+                    <rect key="frame" x="0.0" y="49" width="320" height="412"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.1908769323" green="0.77445794570000004" blue="0.98659823800000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,6 +57,19 @@
                     </subviews>
                     <color key="backgroundColor" red="0.88235294119999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="du0-J9-ygD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem title="Trending" id="H47-OE-2IP"/>
+                        <tabBarItem title="Top" id="BNc-sa-zVp"/>
+                        <tabBarItem title="New" id="FTv-go-mRx"/>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="rGz-Lq-7HU"/>
+                    </connections>
+                </tabBar>
             </subviews>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

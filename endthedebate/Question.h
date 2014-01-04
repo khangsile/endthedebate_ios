@@ -19,7 +19,7 @@
 + (RKObjectMapping*)getObjectMapping;
 + (RKResponseDescriptor*)getResponseMapping;
 + (RKRequestDescriptor*)getRequestMapping;
-+ (void)getQuestions:(NSInteger)page pageSize:(NSInteger)size success:(void(^)(NSMutableArray* questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
++ (void)getQuestions:(NSInteger)page pageSize:(NSInteger)size sortBy:(NSString*)sortBy success:(void(^)(NSMutableArray* questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 + (void)getQuestion:(NSInteger)questionId forUser:(NSString*)authToken success:(void(^)(Question *question))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 @end

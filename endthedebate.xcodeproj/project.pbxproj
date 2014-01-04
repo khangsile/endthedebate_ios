@@ -53,6 +53,8 @@
 		76A14D991841868800DE8DE4 /* CreateAnswerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D971841868800DE8DE4 /* CreateAnswerViewController.xib */; };
 		76A14D9C1841F2C600DE8DE4 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A14D9B1841F2C600DE8DE4 /* XYPieChart.m */; };
 		76A14D9F1841F30F00DE8DE4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A14D9E1841F30F00DE8DE4 /* QuartzCore.framework */; };
+		76D9F6DC1877EADF005F0238 /* AddQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D9F6DA1877EADF005F0238 /* AddQuestionViewController.m */; };
+		76D9F6DD1877EADF005F0238 /* AddQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D9F6DB1877EADF005F0238 /* AddQuestionViewController.xib */; };
 		C36007E118412B6400EA31FE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A14D5118410A7500DE8DE4 /* LoginViewController.xib */; };
 		C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */ = {isa = PBXBuildFile; fileRef = C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */; };
 		C36007F218414DFE00EA31FE /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36007F018414DFE00EA31FE /* QuestionViewController.m */; };
@@ -141,6 +143,9 @@
 		76A14D9A1841F2C600DE8DE4 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
 		76A14D9B1841F2C600DE8DE4 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		76A14D9E1841F30F00DE8DE4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		76D9F6D91877EADF005F0238 /* AddQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQuestionViewController.h; sourceTree = "<group>"; };
+		76D9F6DA1877EADF005F0238 /* AddQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQuestionViewController.m; sourceTree = "<group>"; };
+		76D9F6DB1877EADF005F0238 /* AddQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddQuestionViewController.xib; sourceTree = "<group>"; };
 		C36007E318413CCC00EA31FE /* 851565_207329966095351_137697998_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 851565_207329966095351_137697998_n.png; sourceTree = "<group>"; };
 		C36007EF18414DFE00EA31FE /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		C36007F018414DFE00EA31FE /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
@@ -251,6 +256,7 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
+				76D9F6DE1877EAEA005F0238 /* AddQuestionController */,
 				76433830184287CE00EE166B /* HistoryController */,
 				76A14D941841865F00DE8DE4 /* CreateAnswerController */,
 				76A14D8D184180D400DE8DE4 /* CreateQuestionController */,
@@ -422,6 +428,16 @@
 			name = XYPieChart;
 			sourceTree = "<group>";
 		};
+		76D9F6DE1877EAEA005F0238 /* AddQuestionController */ = {
+			isa = PBXGroup;
+			children = (
+				76D9F6D91877EADF005F0238 /* AddQuestionViewController.h */,
+				76D9F6DA1877EADF005F0238 /* AddQuestionViewController.m */,
+				76D9F6DB1877EADF005F0238 /* AddQuestionViewController.xib */,
+			);
+			name = AddQuestionController;
+			sourceTree = "<group>";
+		};
 		C36007E21841387B00EA31FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +559,7 @@
 				76433823184274F000EE166B /* SWIcon2.PNG in Resources */,
 				C38D51A818418D3B006FFA1E /* LeftSidePanelViewController.xib in Resources */,
 				C38D51B318428507006FFA1E /* Arrows2.PNG in Resources */,
+				76D9F6DD1877EADF005F0238 /* AddQuestionViewController.xib in Resources */,
 				76A14D63184113C500DE8DE4 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +613,7 @@
 			files = (
 				C36007F218414DFE00EA31FE /* QuestionViewController.m in Sources */,
 				76A14D301841045600DE8DE4 /* AppDelegate.m in Sources */,
+				76D9F6DC1877EADF005F0238 /* AddQuestionViewController.m in Sources */,
 				76A14D7018411A0500DE8DE4 /* User.m in Sources */,
 				76A14D911841823500DE8DE4 /* AnswerCell.m in Sources */,
 				7643382D1842833300EE166B /* LegendCell.m in Sources */,
@@ -742,6 +760,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
 				INFOPLIST_FILE = "endthedebate/endthedebate-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -764,6 +783,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "endthedebate/endthedebate-Prefix.pch";
 				INFOPLIST_FILE = "endthedebate/endthedebate-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

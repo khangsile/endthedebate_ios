@@ -43,12 +43,13 @@
                                                       method:RKRequestMethodAny];
 }
 
-+ (void)getQuestions:(NSInteger)page pageSize:(NSInteger)size success:(void(^)(NSMutableArray* questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
++ (void)getQuestions:(NSInteger)page pageSize:(NSInteger)size sortBy:(NSString*)sortBy success:(void(^)(NSMutableArray* questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
     NSDictionary *dictionary = @{
                                  @"page" : [NSNumber numberWithInteger:page],
-                                 @"per_page" : [NSNumber numberWithInteger:size]
+                                 @"per_page" : [NSNumber numberWithInteger:size],
+                                 @"sort_by" : sortBy
                                 };
     
     [manager getObject:nil path:@"questions.json" parameters:dictionary

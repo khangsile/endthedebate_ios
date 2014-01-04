@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 
 #define kQuestionCellHeight 44
-#define kQuestionLabelWidth 280
-#define kQuestionLabelHeight 21
+#define kQuestionLabelWidth 243
+#define kQuestionLabelHeight 13
 
 @interface QuestionCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *questionLabel;
+@property (nonatomic) float requiredCellHeight;
 
 - (void)setCellToSize:(CGSize)size;
+- (void)sizeToFitQuestionLabel;
+
 
 @end

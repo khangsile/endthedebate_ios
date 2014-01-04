@@ -22,6 +22,8 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
 
+@property (nonatomic, strong) QuestionCell *offscreenCell;
+
 @property (nonatomic, strong) NSMutableArray *questions;
 
 @end
@@ -45,6 +47,8 @@
     
     UINib *nib = [UINib nibWithNibName:kQuestionCell bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:kQuestionCell];
+    
+    self.offscreenCell = [self.tableview dequeueReusableCellWithIdentifier:kQuestionCell];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,14 +72,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:17];
-    CGSize size = [question.question sizeWithFont:font
-                                constrainedToSize:CGSizeMake(kQuestionLabelWidth, kQuestionLabelWidth)
-                                    lineBreakMode:NSLineBreakByWordWrapping];
     
-    CGFloat difference = size.height - kQuestionLabelHeight;
-    
-    return kQuestionCellHeight + difference;
+    [self.offscreenCell.questionLabel setText:question.question];
+    [self.offscreenCell layoutSubviews];
+    return MAX(self.offscreenCell.requiredCellHeight, kQuestionCellHeight);
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,18 +83,6 @@
     QuestionCell *cell = (QuestionCell*)[tableView dequeueReusableCellWithIdentifier:kQuestionCell forIndexPath:indexPath];
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     cell.questionLabel.text = question.question;
-    
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:17];
-    CGSize size = [question.question sizeWithFont:font
-                                constrainedToSize:CGSizeMake(kQuestionLabelWidth, kQuestionLabelWidth)
-                                    lineBreakMode:NSLineBreakByWordWrapping];
-    
-    CGFloat difference = size.height - kQuestionLabelHeight;
-    
-    CGSize frame = cell.questionLabel.frame.size;
-    frame.height =  kQuestionCellHeight + difference;
-    
-    [cell setCellToSize:frame];
     
     cell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.questionLabel.numberOfLines = 0;
