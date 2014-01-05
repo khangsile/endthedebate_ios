@@ -94,7 +94,7 @@
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
-    [Question getQuestion:question.questionId forUser:[User activeUser].authToken success:^(Question *question) {
+    [Question getQuestion:question.questionId forUser:[User activeUser] success:^(Question *question) {
         if (![question answered]) {
             QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
             [self.navigationController pushViewController:questionController animated:YES];

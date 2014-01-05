@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddQuestionViewController : UIViewController
+@interface AddQuestionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @end

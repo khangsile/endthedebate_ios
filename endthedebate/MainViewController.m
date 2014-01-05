@@ -10,6 +10,8 @@
 
 #import "QuestionViewController.h"
 #import "ResultsViewController.h"
+#import "MapResultViewController.h"
+#import "ResultsPageViewController.h"
 
 #import "Question.h"
 #import "User.h"
@@ -69,6 +71,11 @@
     UINib *nib = [UINib nibWithNibName:kQuestionCell bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:kQuestionCell];
     self.offscreenCell = [self.tableview dequeueReusableCellWithIdentifier:kQuestionCell];
+    self.offscreenCell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.offscreenCell.questionLabel.numberOfLines = 0;
+    
+    UITabBarItem *item = [self.tabBar.items objectAtIndex:0];
+    [self.tabBar setSelectedItem:item];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,9 +106,10 @@
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
-    [self.offscreenCell.questionLabel setText:question.question];
+    self.offscreenCell.questionLabel.text = question.question;
     [self.offscreenCell layoutSubviews];
-    return MAX(self.offscreenCell.requiredCellHeight, kQuestionCellHeight);
+    
+    return self.offscreenCell.requiredCellHeight;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,6 +120,7 @@
     
     cell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.questionLabel.numberOfLines = 0;
+    cell.votesCountLabel.text = [NSString stringWithFormat:@"%d", question.votesCount];
     
     if ([self.questions count] - [indexPath row] < 3 && !self.isLoading && !self.isEmpty) {
         self.isLoading = YES;
@@ -126,12 +135,12 @@
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
-    [Question getQuestion:question.questionId forUser:[User activeUser].authToken success:^(Question *question) {
+    [Question getQuestion:question.questionId forUser:[User activeUser] success:^(Question *question) {
         if (![question answered]) {
             QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
             [self.navigationController pushViewController:questionController animated:YES];
         } else {
-            ResultsViewController *resultsController = [[ResultsViewController alloc] initWithArray:question.answers forQuestion:question];
+            ResultsPageViewController *resultsController = [[ResultsPageViewController alloc] initWithArray:question.answers forQuestion:question];
             [self.navigationController pushViewController:resultsController animated:YES];
         }
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -204,6 +213,7 @@
         [self.tableview reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Something went wrong");
+        NSLog(@"%@", operation.HTTPRequestOperation.responseString);
     }];
 }
 

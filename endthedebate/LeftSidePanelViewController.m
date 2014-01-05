@@ -12,6 +12,7 @@
 
 #import "LoginViewController.h"
 #import "CreateQuestionViewController.h"
+#import "AddQuestionViewController.h"
 #import "HistoryViewController.h"
 
 #import <JASidePanelController.h>
@@ -74,7 +75,7 @@
 {
     switch ([indexPath row]) {
         case 0:
-            [(UINavigationController*) self.sidePanelController.centerPanel pushViewController:[CreateQuestionViewController new] animated:YES];
+            [(UINavigationController*) self.sidePanelController.centerPanel pushViewController:[AddQuestionViewController new] animated:YES];
             break;
         case 1: {
             [(UINavigationController*) self.sidePanelController.centerPanel

@@ -15,6 +15,7 @@
 @interface QuestionCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *questionLabel;
+@property (nonatomic, strong) IBOutlet UILabel *votesCountLabel;
 @property (nonatomic) float requiredCellHeight;
 
 - (void)setCellToSize:(CGSize)size;

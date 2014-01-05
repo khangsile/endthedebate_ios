@@ -54,14 +54,14 @@
     [self.mainController presentViewController:[[LoginViewController alloc] init] animated:NO completion:nil];
     
     if (!authToken) {
-//        if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
-//            NSString *authToken = [[FBSession activeSession].accessTokenData accessToken];
-//            [User login:authToken success:^(User *activeUser) {
-//                [jaController dismissViewControllerAnimated:NO completion:nil];
-//            } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//                NSLog(@"Something bad happened");
-//            }];
-//        }
+        if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
+            NSString *authToken = [[FBSession activeSession].accessTokenData accessToken];
+            [User login:authToken success:^(User *activeUser) {
+                [jaController dismissViewControllerAnimated:NO completion:nil];
+            } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                NSLog(@"Something bad happened");
+            }];
+        }
     } else {
         User *user = [User new];
         user.authToken = authToken;

@@ -8,6 +8,7 @@
 
 #import "Question.h"
 #import "Answer.h"
+#import "State.h"
 
 @implementation Question
 
@@ -17,11 +18,15 @@
     [mapping addAttributeMappingsFromDictionary:@{
         @"id" : @"questionId",
         @"content" : @"question",
-        @"answered" : @"answered"
+        @"answered" : @"answered",
+        @"votes_count" : @"votesCount"
     }];
     [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"answers"
                                                                            toKeyPath:@"answers"
                                                                          withMapping:[Answer getObjectMapping]]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"map"
+                                                                            toKeyPath:@"mapAnswers"
+                                                                          withMapping:[State getMapping]]];
     
     return mapping;
 }
@@ -54,11 +59,12 @@
     
     [manager getObject:nil path:@"questions.json" parameters:dictionary
                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                   NSLog(@"%@", operation.HTTPRequestOperation.responseString);
                    success([[NSMutableArray alloc] initWithArray:[mappingResult array]]);
     } failure:failure];
 }
 
-+ (void)getQuestion:(NSInteger)questionId forUser:(NSString*)authToken success:(void(^)(Question *question))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
++ (void)getQuestion:(NSInteger)questionId forUser:(User*)user success:(void(^)(Question *question))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
     
@@ -68,7 +74,8 @@
                                                        method:RKRequestMethodGET
                                                          path:path
                                                    parameters:nil];
-    [request setValue:authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
+    [request setValue:user.authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
+    [request setValue:user.email forHTTPHeaderField:@"X-USER-EMAIL"];
     
     RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

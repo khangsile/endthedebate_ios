@@ -9,17 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
+#import "User.h"
+
 @interface Question : NSObject
 
 @property (nonatomic) NSUInteger questionId;
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic, strong) NSMutableArray *answers;
+@property (nonatomic, strong) NSMutableArray *mapAnswers;
+@property (nonatomic) NSUInteger votesCount;
 @property (nonatomic) BOOL answered;
 
 + (RKObjectMapping*)getObjectMapping;
 + (RKResponseDescriptor*)getResponseMapping;
 + (RKRequestDescriptor*)getRequestMapping;
 + (void)getQuestions:(NSInteger)page pageSize:(NSInteger)size sortBy:(NSString*)sortBy success:(void(^)(NSMutableArray* questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
-+ (void)getQuestion:(NSInteger)questionId forUser:(NSString*)authToken success:(void(^)(Question *question))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
++ (void)getQuestion:(NSInteger)questionId forUser:(User*)user success:(void(^)(Question *question))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 @end

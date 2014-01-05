@@ -8,6 +8,12 @@
 
 #import "QuestionCell.h"
 
+@interface QuestionCell ()
+
+@property (nonatomic, strong) IBOutlet UIView *divider;
+
+@end
+
 @implementation QuestionCell
 
 @synthesize requiredCellHeight;
@@ -32,7 +38,7 @@
 {
     [super layoutSubviews];
     
-    CGSize maxSize = CGSizeMake(243.0f, CGFLOAT_MAX);
+    CGSize maxSize = CGSizeMake(243.0f, 50000.0f);
     CGSize requiredSize = [self.questionLabel sizeThatFits:maxSize];
     self.questionLabel.frame = CGRectMake(self.questionLabel.frame.origin.x,
                                           self.questionLabel.frame.origin.y,
@@ -40,6 +46,11 @@
     
     self.requiredCellHeight = 11.0f + 11.0f;
     self.requiredCellHeight += self.questionLabel.frame.size.height;
+    
+    self.divider.frame = CGRectMake(self.divider.frame.origin.x,
+                                    self.requiredCellHeight-1,
+                                    self.divider.frame.size.width,
+                                    self.divider.frame.size.height);
 }
 
 - (void)setCellToSize:(CGSize)size

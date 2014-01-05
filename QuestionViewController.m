@@ -81,8 +81,7 @@
     
     NSMutableURLRequest *request = [manager requestWithObject:nil method:RKRequestMethodPOST path:path parameters:nil];
     [request setValue:[[User activeUser] authToken] forHTTPHeaderField:@"X-AUTH-TOKEN"];
-
-    NSLog(@"%@", [[User activeUser] authToken]);
+    [request setValue:[[User activeUser] email] forHTTPHeaderField:@"X-USER-EMAIL"];
     
     [[manager objectRequestOperationWithRequest:request success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         NSLog(@"%@", operation.HTTPRequestOperation.responseString);
@@ -90,6 +89,7 @@
         
         [self.navigationController pushViewController:[[ResultsViewController alloc] initWithArray:answers forQuestion:self.question] animated:YES];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", operation.HTTPRequestOperation.responseString);
         NSLog(@"Something went wrong");
     }] start];
     

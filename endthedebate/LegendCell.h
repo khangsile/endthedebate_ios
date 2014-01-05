@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kLegendCell @"LegendCell"
+
 @interface LegendCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *answerLabel;
