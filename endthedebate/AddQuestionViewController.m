@@ -11,6 +11,7 @@
 #import "AddAnswerCell.h"
 
 #import "KLKeyBoardbar.h"
+#import "User.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
@@ -193,11 +194,22 @@
                              };
     
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    [manager postObject:nil path:@"questions.json" parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        [self.navigationController popToRootViewControllerAnimated:NO];
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        NSLog(@"Something went wrong");
+    NSMutableURLRequest *request = [manager requestWithObject:nil
+                                                       method:RKRequestMethodPOST
+                                                         path:@"questions.json"
+                                                   parameters:params];
+    [request setValue:[User activeUser].authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
+    [request setValue:[User activeUser].email forHTTPHeaderField:@"X-USER-EMAIL"];
+    
+    RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
+        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            [self.navigationController popToRootViewControllerAnimated:NO];
+        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", operation.HTTPRequestOperation.responseString);
     }];
+    
+    [operation start];
+
 
 }
 

@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="collectionview" destination="EAD-X0-Ayt" id="mjn-EK-Ynh"/>
                 <outlet property="map" destination="14Q-AF-7y1" id="UBL-lB-mpk"/>
-                <outlet property="questionLabel" destination="3vw-Mp-PG8" id="ioy-3G-e80"/>
+                <outlet property="shareButton" destination="K7Q-IT-IGU" id="BsC-Di-O73"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -18,12 +18,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14Q-AF-7y1" customClass="USStatesColorMap">
-                    <rect key="frame" x="0.0" y="82" width="320" height="305"/>
+                    <rect key="frame" x="0.0" y="28" width="320" height="305"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EAD-X0-Ayt">
-                    <rect key="frame" x="10" y="59" width="296" height="53"/>
+                    <rect key="frame" x="10" y="28" width="296" height="53"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.97205771169354838" green="0.42190650201612906" blue="0.45803931451612906" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="OAf-pY-unM">
@@ -38,29 +38,16 @@
                         <outlet property="delegate" destination="-1" id="BbU-ni-cpR"/>
                     </connections>
                 </collectionView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What Do You Want to Know?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-Mp-PG8">
-                    <rect key="frame" x="10" y="11" width="296" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="593-BK-IA6">
-                    <rect key="frame" x="20" y="413" width="136" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Find More Answers">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="toHome:" destination="-1" eventType="touchUpInside" id="IQJ-9P-71r"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7Q-IT-IGU">
-                    <rect key="frame" x="211" y="413" width="46" height="30"/>
+                    <rect key="frame" x="20" y="370" width="280" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.88235294119999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Share">
                         <color key="titleShadowColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="shareToFacebook:" destination="-1" eventType="touchUpInside" id="Vey-T8-YcD"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.97254901960784312" green="0.42352941176470588" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>

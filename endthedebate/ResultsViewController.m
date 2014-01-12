@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionview;
 @property (nonatomic, strong) IBOutlet XYPieChart *pieChart;
-@property (nonatomic, strong) IBOutlet UILabel *questionLabel;
+@property (nonatomic, strong) IBOutlet UIButton *shareButton;
 
 @property (nonatomic, strong) Question *question;
 @property (nonatomic, strong) NSMutableArray *answers;
@@ -48,8 +48,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.questionLabel.text = self.question.question;
+    
+    self.shareButton.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.shareButton.layer.shadowOffset = CGSizeMake(0, 3.0f);
+    self.shareButton.layer.shadowOpacity = 0.5f;
     
     self.navigationController.navigationBarHidden = YES;
     self.navigationItem.hidesBackButton = YES;
@@ -63,7 +65,6 @@
     
     self.sliceColors =[NSArray arrayWithObjects:
                        [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
-                       [UIColor colorWithRed:129/255.0 green:195/255.0 blue:29/255.0 alpha:1],
                        [UIColor colorWithRed:62/255.0 green:173/255.0 blue:219/255.0 alpha:1],
                        [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],
                        [UIColor colorWithRed:148/255.0 green:141/255.0 blue:139/255.0 alpha:1],nil];
@@ -113,12 +114,7 @@
     return answer.answer;
 }
 
-#pragma mark  - Button Click
-
-- (IBAction)toHome:(id)sender
-{
-    [self.navigationController popToRootViewControllerAnimated:NO];
-}
+#pragma mark  - Button
 
 - (IBAction)shareToFacebook:(id)sender
 {

@@ -9,6 +9,7 @@
 #import "MapResultViewController.h"
 
 #import <USStatesColorMap/USStatesColorMap.h>
+#import <Social/Social.h>
 
 #import "Answer.h"
 #import "State.h"
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) IBOutlet USStatesColorMap *map;
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionview;
 @property (nonatomic, strong) IBOutlet UILabel *questionLabel;
+@property (nonatomic, strong) IBOutlet UIButton *shareButton;
 
 @property (nonatomic, strong) Question *question;
 @property (nonatomic, strong) NSMutableArray *answers;
@@ -52,7 +54,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.questionLabel.text = self.question.question;
+    self.shareButton.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.shareButton.layer.shadowOffset = CGSizeMake(0, 3.0f);
+    self.shareButton.layer.shadowOpacity = 0.5f;
     
     self.navigationController.navigationBarHidden = YES;
     self.navigationItem.hidesBackButton = YES;
@@ -130,10 +134,45 @@
 
 #pragma mark - Button
 
-- (IBAction)toHome:(id)sender
+- (IBAction)shareToFacebook:(id)sender
 {
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+        SLComposeViewController *social =
+        [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result) {
+            [social dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+        };
+        [social setCompletionHandler:completionHandler];
+        
+        UIImage *screenShot = [self screenShot];
+        
+        
+        [social addImage:screenShot];
+        [self presentViewController:social animated:YES completion:nil];
+    }
 }
+
+#pragma mark - Helper
+
+- (UIImage*)screenShot
+{
+    CGRect frame = self.view.frame;
+    frame.size.height = self.map.frame.size.height + self.map.frame.origin.y + 20;
+    
+    UIGraphicsBeginImageContext(frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.view.layer renderInContext:context];
+    UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return screenShot;
+}
+
+
+
 
 
 @end

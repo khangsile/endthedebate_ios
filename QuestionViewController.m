@@ -8,7 +8,7 @@
 
 #import "QuestionViewController.h"
 
-#import "ResultsViewController.h"
+#import "ResultsPageViewController.h"
 
 #import "Answer.h"
 #import "User.h"
@@ -87,7 +87,7 @@
         NSLog(@"%@", operation.HTTPRequestOperation.responseString);
         NSMutableArray *answers = [NSMutableArray arrayWithArray:[mappingResult array]];
         
-        [self.navigationController pushViewController:[[ResultsViewController alloc] initWithArray:answers forQuestion:self.question] animated:YES];
+        [self.navigationController pushViewController:[[ResultsPageViewController alloc] initWithArray:answers forQuestion:self.question] animated:YES];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"%@", operation.HTTPRequestOperation.responseString);
         NSLog(@"Something went wrong");
