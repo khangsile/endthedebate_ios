@@ -3,6 +3,7 @@ pod 'Reachability'
 pod 'JASidePanels', '~> 1.3.2'
 pod 'RestKit', '~> 0.20.0'
 pod 'USStatesColorMap', '~> 1.0.1'
+pod 'CorePlot', '~> 1.4'
 
 # Testing and Search are optional components
 pod 'RestKit/Testing', '~> 0.20.0'

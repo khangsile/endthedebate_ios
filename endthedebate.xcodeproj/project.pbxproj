@@ -16,6 +16,8 @@
 		763103041879019C00EE66BA /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = 763103031879019C00EE66BA /* State.m */; };
 		763103081879294300EE66BA /* ResultsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 763103061879294300EE66BA /* ResultsPageViewController.m */; };
 		763103091879294300EE66BA /* ResultsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 763103071879294300EE66BA /* ResultsPageViewController.xib */; };
+		7637571D18986138005C0E5E /* BarResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7637571B18986138005C0E5E /* BarResultViewController.m */; };
+		7637571E18986138005C0E5E /* BarResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7637571C18986138005C0E5E /* BarResultViewController.xib */; };
 		764338211842601800EE166B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764338201842601800EE166B /* Social.framework */; };
 		76433823184274F000EE166B /* SWIcon2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 76433822184274F000EE166B /* SWIcon2.PNG */; };
 		764338271842766C00EE166B /* QuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 764338261842766C00EE166B /* QuestionCell.m */; };
@@ -99,6 +101,9 @@
 		763103051879294300EE66BA /* ResultsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsPageViewController.h; sourceTree = "<group>"; };
 		763103061879294300EE66BA /* ResultsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsPageViewController.m; sourceTree = "<group>"; };
 		763103071879294300EE66BA /* ResultsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsPageViewController.xib; sourceTree = "<group>"; };
+		7637571A18986138005C0E5E /* BarResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarResultViewController.h; sourceTree = "<group>"; };
+		7637571B18986138005C0E5E /* BarResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarResultViewController.m; sourceTree = "<group>"; };
+		7637571C18986138005C0E5E /* BarResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarResultViewController.xib; sourceTree = "<group>"; };
 		764338201842601800EE166B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		76433822184274F000EE166B /* SWIcon2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SWIcon2.PNG; sourceTree = "<group>"; };
 		764338251842766C00EE166B /* QuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCell.h; sourceTree = "<group>"; };
@@ -242,6 +247,16 @@
 			name = ResultsPageController;
 			sourceTree = "<group>";
 		};
+		7637571F1898613E005C0E5E /* BarResultController */ = {
+			isa = PBXGroup;
+			children = (
+				7637571A18986138005C0E5E /* BarResultViewController.h */,
+				7637571B18986138005C0E5E /* BarResultViewController.m */,
+				7637571C18986138005C0E5E /* BarResultViewController.xib */,
+			);
+			name = BarResultController;
+			sourceTree = "<group>";
+		};
 		764338241842765400EE166B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +323,7 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
+				7637571F1898613E005C0E5E /* BarResultController */,
 				7631030A187929DC00EE66BA /* ResultsPageController */,
 				763102FF1878E9D900EE66BA /* MapResultController */,
 				76D9F6DE1877EAEA005F0238 /* AddQuestionController */,
@@ -617,6 +633,7 @@
 				76A14D991841868800DE8DE4 /* CreateAnswerViewController.xib in Resources */,
 				76433823184274F000EE166B /* SWIcon2.PNG in Resources */,
 				C38D51A818418D3B006FFA1E /* LeftSidePanelViewController.xib in Resources */,
+				7637571E18986138005C0E5E /* BarResultViewController.xib in Resources */,
 				763103091879294300EE66BA /* ResultsPageViewController.xib in Resources */,
 				C38D51B318428507006FFA1E /* Arrows2.PNG in Resources */,
 				76D9F6DD1877EADF005F0238 /* AddQuestionViewController.xib in Resources */,
@@ -684,6 +701,7 @@
 				76A14D84184159C800DE8DE4 /* ResultsViewController.m in Sources */,
 				76A14D9C1841F2C600DE8DE4 /* XYPieChart.m in Sources */,
 				763103081879294300EE66BA /* ResultsPageViewController.m in Sources */,
+				7637571D18986138005C0E5E /* BarResultViewController.m in Sources */,
 				764338271842766C00EE166B /* QuestionCell.m in Sources */,
 				76A14D981841868800DE8DE4 /* CreateAnswerViewController.m in Sources */,
 				76A14D6A1841174C00DE8DE4 /* KLTextView.m in Sources */,

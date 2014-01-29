@@ -10,6 +10,7 @@
 
 #import "MapResultViewController.h"
 #import "ResultsViewController.h"
+#import "BarResultViewController.h"
 
 @interface ResultsPageViewController ()
 
@@ -60,7 +61,10 @@
                                                                     forQuestion:self.question]];
     [self addChildViewController:[[ResultsViewController alloc] initWithArray:self.answers
                                                                   forQuestion:self.question]];
-    self.sizes = @[[NSNumber numberWithFloat:430.0], [NSNumber numberWithFloat:500.0]];
+    [self addChildViewController:[[BarResultViewController alloc] initWithArray:self.answers
+                                                                    forQuestion:self.question]];
+    self.sizes = @[[NSNumber numberWithFloat:430.0], [NSNumber numberWithFloat:500.0],
+                   [NSNumber numberWithFloat:548.0]];
     
     [self addViews];
 }
