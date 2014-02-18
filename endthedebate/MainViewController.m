@@ -40,6 +40,7 @@
 @property (nonatomic) NSUInteger pageNo; //pagination
 @property (nonatomic, strong) NSString *sortBy; //pagination
 @property (atomic) BOOL isLoading;
+@property (nonatomic) BOOL searching;
 @property (nonatomic) BOOL isEmpty;
 
 @end
@@ -55,6 +56,7 @@
         self.pageNo = 0;
         self.isLoading = NO;
         self.isEmpty = NO;
+        self.searching = NO;
         self.questions = [[NSMutableArray alloc] init];
     }
     return self;
@@ -81,7 +83,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [self loadQuestions];
 }
 
@@ -122,7 +123,7 @@
     cell.questionLabel.numberOfLines = 0;
     cell.votesCountLabel.text = [NSString stringWithFormat:@"%d", question.votesCount];
     
-    if ([self.questions count] - [indexPath row] < 3 && !self.isLoading && !self.isEmpty) {
+    if ([self.questions count] - [indexPath row] < 3 && !self.isLoading && !self.isEmpty && !self.searching) {
         self.isLoading = YES;
         self.pageNo++;
         [self loadQuestions];
@@ -153,6 +154,7 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
+    self.searching = NO;
     self.sortBy = [item.title lowercaseString];
     [self.questions removeAllObjects];
     self.isEmpty = NO;
@@ -165,6 +167,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     if (textField == self.textField) {
+        [self search:textField];
         [textField resignFirstResponder];
     }
     return NO;
@@ -197,7 +200,20 @@
 
 - (IBAction)search:(id)sender
 {
-    [self.sidePanelController showLeftPanelAnimated:YES];
+    self.searching = YES;
+    
+    [Question search:[self.textField text] success:^(NSMutableArray *questions) {
+        [self.questions removeAllObjects];
+        
+        for (Question *question in questions) [self addQuestion:question];
+        
+        self.isLoading = NO;
+        [self.tableview reloadData];
+        [self.textField resignFirstResponder];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+       // Do nothing
+        NSLog(@"%@", operation.HTTPRequestOperation.responseString);
+    }];
 }
 
 #pragma mark - Helper

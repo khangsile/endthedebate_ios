@@ -36,7 +36,7 @@
     return [RKResponseDescriptor responseDescriptorWithMapping:[self getObjectMapping]
                                                         method:RKRequestMethodAny
                                                    pathPattern:nil
-                                                       keyPath:@"question"
+                                                       keyPath:nil
                                                    statusCodes:nil];
 }
 
@@ -82,6 +82,25 @@
             NSLog(@"%@", operation.HTTPRequestOperation.responseString);
             success([mappingResult firstObject]);
         } failure:failure];
+    
+    [operation start];
+}
+
++ (void)search:(NSString*)query success:(void(^)(NSMutableArray *questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    NSString *path = @"search.json";
+    NSDictionary *params = @{ @"query" : query };
+    
+    NSMutableURLRequest *request = [manager requestWithObject:nil
+                                                       method:RKRequestMethodPOST
+                                                         path:path
+                                                   parameters:params];
+    
+    RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        NSLog(@"%@", operation.HTTPRequestOperation.responseString);
+        success([[NSMutableArray alloc] initWithArray:[mappingResult array]]);
+    } failure:failure];
     
     [operation start];
 }

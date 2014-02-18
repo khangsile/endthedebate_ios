@@ -25,5 +25,6 @@
 + (RKRequestDescriptor*)getRequestMapping;
 + (void)getQuestions:(NSInteger)page pageSize:(NSInteger)size sortBy:(NSString*)sortBy success:(void(^)(NSMutableArray* questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 + (void)getQuestion:(NSInteger)questionId forUser:(User*)user success:(void(^)(Question *question))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
++ (void)search:(NSString*)query success:(void(^)(NSMutableArray *questions))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 @end
