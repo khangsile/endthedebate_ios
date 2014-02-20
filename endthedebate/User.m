@@ -73,7 +73,13 @@ static User *activeUser;
         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
             NSLog(@"%@", [operation HTTPRequestOperation].responseString);
             
-            User *user = [mappingResult firstObject];
+            User *user;
+            for (NSObject *type in [mappingResult array]) {
+                if ([type isKindOfClass:[User class]]) {
+                    user = (User*)type;
+                    break;
+                }
+            }
             [User setActiveUser:user];
             
             success(user);

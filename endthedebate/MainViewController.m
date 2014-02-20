@@ -136,6 +136,8 @@
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
+    User *user = [User activeUser];
+    
     [Question getQuestion:question.questionId forUser:[User activeUser] success:^(Question *question) {
         if (![question answered]) {
             QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
