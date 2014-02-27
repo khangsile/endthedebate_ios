@@ -71,7 +71,6 @@
 		C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36007F61841572200EA31FE /* QuestionViewController.xib */; };
 		C38D51A618418D23006FFA1E /* LeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38D51A518418D23006FFA1E /* LeftSidePanelViewController.m */; };
 		C38D51A818418D3B006FFA1E /* LeftSidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38D51A718418D3B006FFA1E /* LeftSidePanelViewController.xib */; };
-		C38D51B1184281C8006FFA1E /* SWIcon2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C38D51B0184281C8006FFA1E /* SWIcon2.PNG */; };
 		C38D51B318428507006FFA1E /* Arrows2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C38D51B218428507006FFA1E /* Arrows2.PNG */; };
 		C38D51B518428611006FFA1E /* Arrows3.png in Resources */ = {isa = PBXBuildFile; fileRef = C38D51B418428611006FFA1E /* Arrows3.png */; };
 /* End PBXBuildFile section */
@@ -621,7 +620,6 @@
 				764338291842769500EE166B /* QuestionCell.xib in Resources */,
 				76A14D2A1841045600DE8DE4 /* InfoPlist.strings in Resources */,
 				C38D51B518428611006FFA1E /* Arrows3.png in Resources */,
-				C38D51B1184281C8006FFA1E /* SWIcon2.PNG in Resources */,
 				C36007E418413CCC00EA31FE /* 851565_207329966095351_137697998_n.png in Resources */,
 				76A14D931841824700DE8DE4 /* AnswerCell.xib in Resources */,
 				C36007F71841572200EA31FE /* QuestionViewController.xib in Resources */,
