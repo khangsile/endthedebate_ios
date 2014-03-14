@@ -57,11 +57,11 @@
     
     self.questionLabel.text = self.question.question;
     
-    [self addChildViewController:[[MapResultViewController alloc] initWithArray:self.answers
+    [self addChildViewController:[[MapResultViewController alloc] initWithArray:self.question.answers
                                                                     forQuestion:self.question]];
-    [self addChildViewController:[[ResultsViewController alloc] initWithArray:self.answers
+    [self addChildViewController:[[ResultsViewController alloc] initWithArray:self.question.answers
                                                                   forQuestion:self.question]];
-    [self addChildViewController:[[BarResultViewController alloc] initWithArray:self.answers
+    [self addChildViewController:[[BarResultViewController alloc] initWithArray:self.question.answers
                                                                     forQuestion:self.question]];
     self.sizes = @[[NSNumber numberWithFloat:430.0], [NSNumber numberWithFloat:500.0],
                    [NSNumber numberWithFloat:548.0]];

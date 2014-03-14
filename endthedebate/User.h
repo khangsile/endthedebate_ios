@@ -11,13 +11,14 @@
 
 @interface User : NSObject
 
-@property (nonatomic) NSUInteger userId;
+@property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *authToken;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *city;
 @property (nonatomic, strong) NSString *state;
+@property (nonatomic) NSUInteger userId;
+
 
 + (RKObjectMapping*)getObjectMapping;
 + (RKRequestDescriptor*)getRequestMapping;

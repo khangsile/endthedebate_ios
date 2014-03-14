@@ -8,21 +8,41 @@
 
 #import "User.h"
 
+//#import <RestKit/RKObjectMappingOperationDataSource.h>
+#import <RestKit/ObjectMapping/RKObjectMappingOperationDataSource.h>
+
 @implementation User
 
 static User *activeUser;
 
+
++ (User*)map:(id)data
+{
+    User* user = [[User alloc] init];
+    
+    NSLog(@"%@", data);
+    RKMappingOperation *mapper = [[RKMappingOperation alloc] initWithSourceObject:data //array of media
+                                                                destinationObject:user  //collection view data source
+                                                                          mapping:[User getObjectMapping]];
+    //RKMappingOperation will not run w/o a data source set
+    RKObjectMappingOperationDataSource *mappingDS = [RKObjectMappingOperationDataSource new];
+    mapper.dataSource = mappingDS;
+    [mapper performMapping:nil];
+    
+    return user;
+}
+
 + (RKObjectMapping*)getObjectMapping
 {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[self class]];
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[User class]];
     [mapping addAttributeMappingsFromDictionary:@{
-        @"id" : @"userId",
+        @"email" : @"email",
         @"authentication_token" : @"authToken",
+        @"id" : @"userId",
         @"first_name" : @"firstName",
         @"last_name" : @"lastName",
         @"city" : @"city",
         @"state" : @"state",
-        @"email" : @"email"
     }];
     
     return mapping;
@@ -31,9 +51,9 @@ static User *activeUser;
 + (RKResponseDescriptor*)getResponseMapping
 {
     return [RKResponseDescriptor responseDescriptorWithMapping:[self getObjectMapping]
-                                                 method:RKRequestMethodAny
+                                                 method:RKRequestMethodPOST
                                             pathPattern:nil
-                                                keyPath:@"user"
+                                                keyPath:nil
                                             statusCodes:nil];
 }
 
@@ -73,16 +93,14 @@ static User *activeUser;
         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
             NSLog(@"%@", [operation HTTPRequestOperation].responseString);
             
-            User *user;
-            for (NSObject *type in [mappingResult array]) {
-                if ([type isKindOfClass:[User class]]) {
-                    user = (User*)type;
-                    break;
-                }
-            }
-            [User setActiveUser:user];
+            NSError* error;
+            NSDictionary* json = [NSJSONSerialization JSONObjectWithData:[operation HTTPRequestOperation].responseData
+                                                                 options:kNilOptions
+                                                                   error:&error];
             
-            success(user);
+            activeUser = [User map:json];
+            
+            success(activeUser);
         } failure:failure];
     
     [operation start];

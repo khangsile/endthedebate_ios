@@ -99,7 +99,7 @@
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    Answer *answer = [self.answers objectAtIndex:[indexPath row]];
+    Answer *answer = [[self.question answers] objectAtIndex:[indexPath row]];
     
     LegendCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kLegendCell forIndexPath:indexPath];
     cell.answerLabel.text = answer.answer;
@@ -124,7 +124,8 @@
         for (int i=0; i<[self.question.answers count]; i++) {
             Answer *answer = [self.question.answers objectAtIndex:i];
             if (maxId == answer.answerId) {
-                [self.map setColor:[self.sliceColors objectAtIndex:i] forStateByName:state.name];
+                if (![state.name isEqualToString:@""])
+                    [self.map setColor:[self.sliceColors objectAtIndex:i] forStateByName:state.name];
                 break;
             }
         }
