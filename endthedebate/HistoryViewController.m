@@ -9,7 +9,7 @@
 #import "HistoryViewController.h"
 
 #import "QuestionViewController.h"
-#import "ResultsViewController.h"
+#import "ResultsPageViewController.h"
 
 #import "Question.h"
 #import "User.h"
@@ -101,7 +101,7 @@
             QuestionViewController *questionController = [[QuestionViewController alloc] initWithQuestion:question];
             [self.navigationController pushViewController:questionController animated:YES];
         } else {
-            ResultsViewController *resultsController = [[ResultsViewController alloc] initWithArray:question.answers forQuestion:question];
+            ResultsPageViewController *resultsController = [[ResultsPageViewController alloc] initWithArray:question.answers forQuestion:question];
             [self.navigationController pushViewController:resultsController animated:YES];
         }
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
