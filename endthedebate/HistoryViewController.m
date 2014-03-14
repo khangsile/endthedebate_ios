@@ -73,9 +73,10 @@
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
-    [self.offscreenCell.questionLabel setText:question.question];
+    self.offscreenCell.questionLabel.text = question.question;
     [self.offscreenCell layoutSubviews];
-    return MAX(self.offscreenCell.requiredCellHeight, kQuestionCellHeight);
+    
+    return self.offscreenCell.requiredCellHeight;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,6 +84,7 @@
     QuestionCell *cell = (QuestionCell*)[tableView dequeueReusableCellWithIdentifier:kQuestionCell forIndexPath:indexPath];
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     cell.questionLabel.text = question.question;
+    cell.votesCountLabel = [NSString stringWithFormat:@"%d", question.votesCount];
     
     cell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.questionLabel.numberOfLines = 0;
@@ -123,6 +125,7 @@
                                                          path:path
                                                    parameters:nil];
     [request setValue:user.authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
+    [request setValue:user.email forHTTPHeaderField:@"X-USER-EMAIL"];
     
     RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

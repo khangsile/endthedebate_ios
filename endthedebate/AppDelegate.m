@@ -218,7 +218,8 @@
 - (void)closeSession
 {
     [[FBSession activeSession] closeAndClearTokenInformation];
-    //[self showLoginView];
+    [[FBSession activeSession] close];
+    [self showLoginView];
 }
 
 - (void)login:(NSString*)authToken
