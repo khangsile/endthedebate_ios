@@ -65,7 +65,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setUpView];
+    //[self setUpView];
     
     NSMutableArray *resizeViews = [[NSMutableArray alloc] initWithArray:@[self.tableview]];
     [self.searchBar setResizeViews:resizeViews];

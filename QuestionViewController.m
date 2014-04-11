@@ -42,6 +42,10 @@
 {
     [super viewDidLoad];
     
+    self.tableview.layer.cornerRadius = 5.0f;
+    self.tableview.layer.borderWidth = 1.0f;
+    self.tableview.layer.borderColor = [[UIColor colorWithRed:225.0/256 green:222.0/256 blue:222.0/256 alpha:1.0] CGColor];
+    
     UINib *nib = [UINib nibWithNibName:kAnswerCell bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:kAnswerCell];
     

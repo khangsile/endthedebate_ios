@@ -86,22 +86,21 @@
         CGRect frame = controller.view.frame;
         frame.origin.x = 0;
         frame.origin.y = totalSize;
-        frame.size.height = ((NSNumber*)[self.sizes objectAtIndex:index]).floatValue;
         
         controller.view.frame = frame;
         controller.view.layer.shadowOpacity = .75f;
         controller.view.layer.shadowOffset = CGSizeMake(0, 3);
         controller.view.layer.shadowColor = [[UIColor blackColor] CGColor];
         
-        totalSize += ((NSNumber*)[self.sizes objectAtIndex:index]).floatValue;
+        totalSize += controller.view.frame.size.height + 70;
         index++;
     }
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, totalSize, 320.0f, 100.0f)];
+
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, totalSize, 320.0f, 120.0f)];
     [view setBackgroundColor:[UIColor yellowColor]];
     
     UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    exitButton.frame = CGRectMake(20.0f, 30.0f, 280.0f, 40.0f);
+    exitButton.frame = CGRectMake(20.0f, 50.0f, 280.0f, 40.0f);
     [exitButton setBackgroundColor:[UIColor colorWithRed:225.0/256 green:222.0/256 blue:222.0/256 alpha:1.0f]];
     [exitButton setTitle:@"Find More Questions" forState:UIControlStateNormal];
     exitButton.layer.shadowColor = [[UIColor blackColor] CGColor];
@@ -110,7 +109,7 @@
     [exitButton addTarget:self action:@selector(toHome:) forControlEvents:UIControlEventTouchUpInside];
     
     [view addSubview:exitButton];
-    totalSize += 120;
+    totalSize += view.frame.size.height;
     [self.scrollview insertSubview:view atIndex:1]; //add to the bottom of the stack
     
     self.scrollview.contentSize = CGSizeMake(self.scrollview.contentSize.width, totalSize);
