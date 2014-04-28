@@ -242,6 +242,9 @@
 				763103051879294300EE66BA /* ResultsPageViewController.h */,
 				763103061879294300EE66BA /* ResultsPageViewController.m */,
 				763103071879294300EE66BA /* ResultsPageViewController.xib */,
+				76A14D7D1841592600DE8DE4 /* ResultsController */,
+				7637571F1898613E005C0E5E /* BarResultController */,
+				763102FF1878E9D900EE66BA /* MapResultController */,
 			);
 			name = ResultsPageController;
 			sourceTree = "<group>";
@@ -322,14 +325,11 @@
 			children = (
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
-				7637571F1898613E005C0E5E /* BarResultController */,
 				7631030A187929DC00EE66BA /* ResultsPageController */,
-				763102FF1878E9D900EE66BA /* MapResultController */,
 				76D9F6DE1877EAEA005F0238 /* AddQuestionController */,
 				76433830184287CE00EE166B /* HistoryController */,
 				76A14D941841865F00DE8DE4 /* CreateAnswerController */,
 				76A14D8D184180D400DE8DE4 /* CreateQuestionController */,
-				76A14D7D1841592600DE8DE4 /* ResultsController */,
 				76A14D5E1841116300DE8DE4 /* MainController */,
 				C36007EE18414DDE00EA31FE /* QuestionViewController */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,

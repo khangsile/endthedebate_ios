@@ -92,11 +92,29 @@
         controller.view.layer.shadowOffset = CGSizeMake(0, 3);
         controller.view.layer.shadowColor = [[UIColor blackColor] CGColor];
         
-        totalSize += controller.view.frame.size.height + 70;
+        totalSize += controller.view.frame.size.height;
         index++;
     }
 
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, totalSize, 320.0f, 120.0f)];
+    if ([[UIScreen mainScreen] bounds].size.height == 568.0f) totalSize += 70;
+    UIView *view = [self getHomeView:CGRectMake(0, totalSize, 320.0f, 120.0f)];
+    totalSize += view.frame.size.height;
+    [self.scrollview insertSubview:view atIndex:1]; //add to the bottom of the stack
+    
+    self.scrollview.contentSize = CGSizeMake(self.scrollview.contentSize.width, totalSize);
+}
+
+#pragma mark - Button
+
+- (IBAction)toHome:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+/**************************** HELPER FUNCTIONS *********************************/
+
+- (UIView*)getHomeView:(CGRect)frame {
+    UIView *view = [[UIView alloc] initWithFrame:frame];
     [view setBackgroundColor:[UIColor yellowColor]];
     
     UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -109,17 +127,7 @@
     [exitButton addTarget:self action:@selector(toHome:) forControlEvents:UIControlEventTouchUpInside];
     
     [view addSubview:exitButton];
-    totalSize += view.frame.size.height;
-    [self.scrollview insertSubview:view atIndex:1]; //add to the bottom of the stack
-    
-    self.scrollview.contentSize = CGSizeMake(self.scrollview.contentSize.width, totalSize);
-}
-
-#pragma mark - Button
-
-- (IBAction)toHome:(id)sender
-{
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    return view;
 }
 
 @end
