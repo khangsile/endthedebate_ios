@@ -279,6 +279,15 @@
 			name = HistoryController;
 			sourceTree = "<group>";
 		};
+		7651C58E191076C70063EE1D /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				76A14D941841865F00DE8DE4 /* CreateAnswerController */,
+				76A14D8D184180D400DE8DE4 /* CreateQuestionController */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
 		76A14D131841045500DE8DE4 = {
 			isa = PBXGroup;
 			children = (
@@ -323,13 +332,12 @@
 		76A14D251841045500DE8DE4 /* endthedebate */ = {
 			isa = PBXGroup;
 			children = (
+				7651C58E191076C70063EE1D /* Deprecated */,
 				76A14D2E1841045600DE8DE4 /* AppDelegate.h */,
 				76A14D2F1841045600DE8DE4 /* AppDelegate.m */,
 				7631030A187929DC00EE66BA /* ResultsPageController */,
 				76D9F6DE1877EAEA005F0238 /* AddQuestionController */,
 				76433830184287CE00EE166B /* HistoryController */,
-				76A14D941841865F00DE8DE4 /* CreateAnswerController */,
-				76A14D8D184180D400DE8DE4 /* CreateQuestionController */,
 				76A14D5E1841116300DE8DE4 /* MainController */,
 				C36007EE18414DDE00EA31FE /* QuestionViewController */,
 				76A14D4E18410A4A00DE8DE4 /* LoginController */,

@@ -89,9 +89,9 @@
     
     [[manager objectRequestOperationWithRequest:request success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         NSLog(@"%@", operation.HTTPRequestOperation.responseString);
-        NSMutableArray *answers = [NSMutableArray arrayWithArray:[mappingResult array]];
+        Question *question = [mappingResult firstObject];
         
-        [self.navigationController pushViewController:[[ResultsPageViewController alloc] initWithArray:answers forQuestion:self.question] animated:YES];
+        [self.navigationController pushViewController:[[ResultsPageViewController alloc] initWithArray:question.answers forQuestion:question] animated:YES];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"%@", operation.HTTPRequestOperation.responseString);
         NSLog(@"Something went wrong");
