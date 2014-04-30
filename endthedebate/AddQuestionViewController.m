@@ -13,6 +13,8 @@
 #import "KLKeyBoardbar.h"
 #import "User.h"
 
+#import "Question.h"
+
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
@@ -186,31 +188,15 @@
 
 - (IBAction)uploadQuestion:(id)sender
 {
-    if ([self.answers count] <= 0) return;
-    
-    NSDictionary *params = @{
-                             @"content" : self.questionField.text,
-                             @"answers" : self.answers
-                             };
-    
-    RKObjectManager *manager = [RKObjectManager sharedManager];
-    NSMutableURLRequest *request = [manager requestWithObject:nil
-                                                       method:RKRequestMethodPOST
-                                                         path:@"questions.json"
-                                                   parameters:params];
-    [request setValue:[User activeUser].authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
-    [request setValue:[User activeUser].email forHTTPHeaderField:@"X-USER-EMAIL"];
-    
-    RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
-        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-            [self.navigationController popToRootViewControllerAnimated:NO];
-        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-            NSLog(@"%@", operation.HTTPRequestOperation.responseString);
+    NSString *error = [Question uploadQuestion:self.questionField.text answers:self.answers user:[User activeUser] success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Failure to upload question: %@", operation.HTTPRequestOperation.responseString);
     }];
     
-    [operation start];
-
-
+    if (![error isEqualToString:@""]) {
+        [[[UIAlertView alloc] initWithTitle:@"Upload Error" message:error delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+    }
 }
 
 

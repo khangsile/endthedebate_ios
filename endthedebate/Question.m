@@ -105,6 +105,37 @@
     [operation start];
 }
 
++ (NSString*)uploadQuestion:(NSString*)question answers:(NSMutableArray*)answers user:(User*)user
+               success:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success failure:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure
+{
+
+    if ([[question stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])
+        return @"Fill in a question to submit.";
+    if (user == NULL) return @"Current user is not logged in.";
+    if ([answers count] < 2) return @"Creating a question requires at least two answers.";
+    if (user.authToken == NULL) return @"Current session is invalid.";
+    if (user.email == NULL) return @"Current session is invalid";
+    
+    NSDictionary *params = @{
+        @"content" : question,
+        @"answers" : answers
+    };
+    
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    NSMutableURLRequest *request = [manager requestWithObject:nil
+                                                       method:RKRequestMethodPOST
+                                                         path:@"questions.json"
+                                                   parameters:params];
+    [request setValue:user.authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
+    [request setValue:user.email forHTTPHeaderField:@"X-USER-EMAIL"];
+    
+    RKObjectRequestOperation *operation = [manager objectRequestOperationWithRequest:request
+        success:success failure:failure];
+
+    [operation start];
+    return @"";
+}
+
 - (id)init
 {
     if (self = [super init]) {
