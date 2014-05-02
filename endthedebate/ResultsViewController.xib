@@ -35,7 +35,7 @@
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mdJ-aC-A44">
                     <rect key="frame" x="10" y="30" width="296" height="52"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.19477928350000001" green="1" blue="0.28271126549999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.36078431372549019" green="0.80000000000000004" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="wDs-KZ-pzG">
                         <size key="itemSize" width="65" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -49,7 +49,7 @@
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.19477928350000001" green="1" blue="0.28271126549999998" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.36078431372549019" green="0.80000000000000004" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>

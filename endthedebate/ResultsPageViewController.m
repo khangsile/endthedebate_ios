@@ -80,6 +80,15 @@
     NSUInteger index = 0;
     NSUInteger totalSize = 0;
     
+    UIView *topView = [self getHomeView:CGRectMake(0, totalSize, 320.0f, 120.0f)];
+    [topView setBackgroundColor:[UIColor colorWithRed:200/255.0 green:175/255.0 blue:255/255.0 alpha:1]];
+    topView.layer.shadowOpacity = 0.75f;
+    topView.layer.shadowOffset = CGSizeMake(0,3);
+    topView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    [self.scrollview insertSubview:topView atIndex:1];
+    
+    totalSize += topView.frame.size.height;
+    
     for (UIViewController *controller in self.childViewControllers) {
         [self.scrollview insertSubview:controller.view atIndex:1]; //add to the bottom of the stack
         
@@ -97,9 +106,9 @@
     }
 
     if ([[UIScreen mainScreen] bounds].size.height == 568.0f) totalSize += 70;
-    UIView *view = [self getHomeView:CGRectMake(0, totalSize, 320.0f, 120.0f)];
-    totalSize += view.frame.size.height;
-    [self.scrollview insertSubview:view atIndex:1]; //add to the bottom of the stack
+    UIView *bottomView = [self getHomeView:CGRectMake(0, totalSize, 320.0f, 120.0f)];
+    totalSize += bottomView.frame.size.height;
+    [self.scrollview insertSubview:bottomView atIndex:1]; //add to the bottom of the stack
     
     self.scrollview.contentSize = CGSizeMake(self.scrollview.contentSize.width, totalSize);
 }
