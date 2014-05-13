@@ -54,13 +54,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // Set the shadow for the layering
     self.shareButton.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.shareButton.layer.shadowOffset = CGSizeMake(0, 3.0f);
     self.shareButton.layer.shadowOpacity = 0.5f;
     
+    // Hide the navigation bar
     self.navigationController.navigationBarHidden = YES;
     self.navigationItem.hidesBackButton = YES;
     
+    // Set the colors to be used in the map that correspond to each answer
     self.sliceColors =[NSArray arrayWithObjects:
                        [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
                        [UIColor colorWithRed:129/255.0 green:195/255.0 blue:29/255.0 alpha:1],
@@ -68,6 +71,7 @@
                        [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],
                        [UIColor colorWithRed:148/255.0 green:141/255.0 blue:139/255.0 alpha:1],nil];
     
+    // Set the UINib for the cell to be used in the legend
     UINib *nib = [UINib nibWithNibName:kLegendCell bundle:nil];
     [self.collectionview registerNib:nib forCellWithReuseIdentifier:kLegendCell];
     [self loadMap];
@@ -87,40 +91,56 @@
 
 #pragma mark - UICollectionView Delegate
 
+/**
+ Return the number of sections in the legend (default to 1)
+ */
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
 
+/**
+ Return the number of items in the legend. This is just the number of answers.
+ */
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [self.answers count];
 }
 
+/**
+ Create a cell in the legend to represent each answer by displaying its text and corresponding color
+ */
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Get the answer
     Answer *answer = [[self.question answers] objectAtIndex:[indexPath row]];
     
     LegendCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kLegendCell forIndexPath:indexPath];
-    cell.answerLabel.text = answer.answer;
+    cell.answerLabel.text = answer.answer; // set the text of the answer
+    // set the color that corresponds to the answer
     cell.colorView.backgroundColor = [self.sliceColors objectAtIndex:[indexPath row]];
-    
     return cell;
 }
 
 #pragma mark - Colorable Map
 
+/**
+ Load the map
+ */
 - (void)loadMap
 {
+    // Default all states to gray, so states that have not voted are gray.
     [self.map setColorForAllStates:[UIColor lightGrayColor]];
     for (State *state in self.question.mapAnswers) {
         NSUInteger maxNum = 0, maxId = 0;
+        // Get the answer with the most votes per state
         for (StateAnswer *answer in state.answers) {
             if ([answer voteCount] > maxNum) {
                 maxNum = [answer voteCount];
                 maxId = [answer answerId];
             }
         }
+        // Set the color of the state based on the answer with the most votes
         for (int i=0; i<[self.question.answers count]; i++) {
             Answer *answer = [self.question.answers objectAtIndex:i];
             if (maxId == answer.answerId) {
@@ -135,6 +155,10 @@
 
 #pragma mark - Button
 
+/**
+ Share the graph to Facebook by taking a screenshot of the view and
+ converting it to a UIImage, then uploading it to Facebook
+ */
 - (IBAction)shareToFacebook:(id)sender
 {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
@@ -158,6 +182,9 @@
 
 #pragma mark - Helper
 
+/**
+ Take a screenshot of the graph
+ */
 - (UIImage*)screenShot
 {
     CGRect frame = self.view.frame;

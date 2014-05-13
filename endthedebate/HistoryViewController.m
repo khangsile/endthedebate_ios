@@ -20,10 +20,17 @@
 
 @interface HistoryViewController ()
 
+/**
+ The tableview to hold the previous questions that the user has answered
+ */
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
-
+/**
+ The off screen cell to be used to be used to determine the height of each cell
+ */
 @property (nonatomic, strong) QuestionCell *offscreenCell;
-
+/**
+ An array of the questions in the user's history
+ */
 @property (nonatomic, strong) NSMutableArray *questions;
 
 @end
@@ -45,6 +52,7 @@
     // Do any additional setup after loading the view from its nib.
     [self loadQuestions];
     
+    // Load the nib to register the question cell
     UINib *nib = [UINib nibWithNibName:kQuestionCell bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:kQuestionCell];
     
@@ -59,32 +67,47 @@
 
 #pragma mark - UITableView Delegate
 
+/**
+ Returns the number of sections in the tableview
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+/**
+ Returns the number of rows in the tableview (number of questions)
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.questions count];
 }
 
+/**
+ Set the height of the cell for the given question (indexPath)
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
+    // Create the cell to simulate what it will look like onscreen
     self.offscreenCell.questionLabel.text = question.question;
+    // Layout subviews makes the cell larger so that it is large enough to fit all its content
     [self.offscreenCell layoutSubviews];
     
+    // Return the offscreenCell's height
     return self.offscreenCell.requiredCellHeight;
 }
 
+/**
+ Create the cell that holds a question
+ */
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QuestionCell *cell = (QuestionCell*)[tableView dequeueReusableCellWithIdentifier:kQuestionCell forIndexPath:indexPath];
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     cell.questionLabel.text = question.question;
-    cell.votesCountLabel = [NSString stringWithFormat:@"%d", question.votesCount];
+    cell.votesCountLabel.text = [NSString stringWithFormat:@"%d", question.votesCount];
     
     cell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.questionLabel.numberOfLines = 0;
@@ -92,6 +115,10 @@
     return cell;
 }
 
+/**
+ React to the user clicking a question in the history list. If the question is answered, then
+ it will go straight to the results page. If not, then it will go straight to the question page.
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
@@ -106,12 +133,15 @@
         }
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Something is going wrong on MainViewController");
-        NSLog(@"%@", operation.HTTPRequestOperation.responseString);
+        NSLog(@"%@", operation.HTTPRequestOperation.responseString); // Do nothing if it fails, but log it
     }];
 }
 
 #pragma mark - Helper
 
+/**
+ Load the questions from the user's history
+ */
 - (void)loadQuestions
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
@@ -124,6 +154,7 @@
                                                        method:RKRequestMethodGET
                                                          path:path
                                                    parameters:nil];
+    // Requires an auth-token and email to find which user's history to get
     [request setValue:user.authToken forHTTPHeaderField:@"X-AUTH-TOKEN"];
     [request setValue:user.email forHTTPHeaderField:@"X-USER-EMAIL"];
     

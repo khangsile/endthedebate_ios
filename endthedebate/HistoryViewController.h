@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ A UIViewController to look at the user's history
+ */
 @interface HistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

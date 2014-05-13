@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ View Controller to create a question and add answers to the question.
+ */
 @interface AddQuestionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ The main view controller which holds the stream of questions
+ */
 @interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, UITextFieldDelegate>
 
 @end

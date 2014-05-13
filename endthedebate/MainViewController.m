@@ -28,19 +28,50 @@
 
 @interface MainViewController ()
 
+/**
+ tabBar to switch between hot, new, top modes
+ */
 @property (nonatomic, strong) IBOutlet UITabBar *tabBar; //tab bar
+/**
+ TableView to hold all of the questions
+ */
 @property (nonatomic, strong) IBOutlet UITableView *tableview; // tableview
+/**
+ keyboard bar to hold the search bar
+ */
 @property (nonatomic, strong) IBOutlet KLKeyboardBar *searchBar; // search
+/**
+ TextField to type the search in
+ */
 @property (nonatomic, strong) IBOutlet UITextField *textField; // search
-
+/**
+ QuestionCell to generate heights for the cells to be displayed
+ */
 @property (nonatomic, strong) QuestionCell *offscreenCell; // dynamic cell sizes
-
+/**
+ Mutable array to hold the questions to be shown in the tableview
+ */
 @property (nonatomic, strong) NSMutableArray *questions; // table view data source
 
+/**
+ NSUInteger to hold which page we are on (for pagination)
+ */
 @property (nonatomic) NSUInteger pageNo; //pagination
+/**
+ String to determine how to sort the questions
+ */
 @property (nonatomic, strong) NSString *sortBy; //pagination
+/**
+ Boolean to determine if the page is loading questions
+ */
 @property (atomic) BOOL isLoading;
+/**
+ Boolean to determine if the page results are search results
+ */
 @property (nonatomic) BOOL searching;
+/**
+ Boolean to determine if there are no questions (empty)
+ */
 @property (nonatomic) BOOL isEmpty;
 
 @end
@@ -67,15 +98,18 @@
     [super viewDidLoad];
     //[self setUpView];
     
+    // Set up views to be resized when the keyboard comes up
     NSMutableArray *resizeViews = [[NSMutableArray alloc] initWithArray:@[self.tableview]];
     [self.searchBar setResizeViews:resizeViews];
     
+    // Set up the cells to be used in the table
     UINib *nib = [UINib nibWithNibName:kQuestionCell bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:kQuestionCell];
     self.offscreenCell = [self.tableview dequeueReusableCellWithIdentifier:kQuestionCell];
     self.offscreenCell.questionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.offscreenCell.questionLabel.numberOfLines = 0;
     
+    // Initialize the tabBar to be initially set to top
     UITabBarItem *item = [self.tabBar.items objectAtIndex:0];
     [self.tabBar setSelectedItem:item];
 }
@@ -93,26 +127,42 @@
 
 #pragma mark - UITableView Delegate
 
+/**
+ Returns the number of sections in the table view
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+/**
+ Returns the number of rows in the tableview (the number of questions)
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.questions count];
 }
 
+/**
+ Gets the height for each cell at the given index path
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
     
+    //Simulate what the cell will look like in the tableview
     self.offscreenCell.questionLabel.text = question.question;
+    // Use layout subviews to enlarge the cell so that it can fit
+    // all of its content
     [self.offscreenCell layoutSubviews];
     
+    // Return this size
     return self.offscreenCell.requiredCellHeight;
 }
 
+/**
+ Create a cell for each question in the NSMutableArray of questions
+ */
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     QuestionCell *cell = (QuestionCell*)[tableView dequeueReusableCellWithIdentifier:kQuestionCell forIndexPath:indexPath];
@@ -132,6 +182,9 @@
     return cell;
 }
 
+/**
+ Go to the question screen if the cell has not yet been answered. If it has, then go to the results page.
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Question *question = [self.questions objectAtIndex:[indexPath row]];
@@ -152,6 +205,9 @@
 
 #pragma mark - UITabBar Delegate
 
+/**
+ Switch the way the cells are organized (by hot, top, new)
+ */
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     self.searching = NO;
@@ -175,6 +231,9 @@
 
 #pragma mark - ViewSetUp
 
+/**
+ Set up the placement of the pages
+ */
 - (void)setUpView
 {
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -198,6 +257,9 @@
 
 #pragma mark - Buttons
 
+/**
+ Search for a question with the given query in the searchField
+ */
 - (IBAction)search:(id)sender
 {
     self.searching = YES;
@@ -218,6 +280,9 @@
 
 #pragma mark - Helper
 
+/**
+ Load questions according to the page number and sorting type
+ */
 - (void)loadQuestions
 {
     [Question getQuestions:self.pageNo pageSize:kNoPerPage sortBy:self.sortBy success:^(NSMutableArray *questions) {
@@ -233,6 +298,10 @@
     }];
 }
 
+/**
+ Add a question only if it is not in the list currently.
+ This is done to avoid duplicates during the pagination process.
+ */
 - (void)addQuestion:(Question*)question
 {
     for (Question *_question in self.questions) {

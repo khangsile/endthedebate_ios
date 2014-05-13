@@ -54,12 +54,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    // Initialize the colors for the bar graph into a NSArray
     self.colors = @[ [UIColor redColor],
         [UIColor blueColor],
         [UIColor orangeColor],
         [UIColor purpleColor]];
     
+    // Generate the bar graph.
     [self generateBarPlot];
 }
 
@@ -71,10 +73,17 @@
 
 #pragma mark - BarGraph Data Source
 
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
+/**
+ Supply the number of records for the plot to be generated (the number of answers)
+*/
+ -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
     return [self.answers count];
 }
 
+/**
+ Supply the number for the given record in the plot (based on index). This is just the y-value
+ of the record to determine how high the bar is set in the plot.
+ */
 -(NSNumber*)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
     Answer *answer = [self.answers objectAtIndex:index];
     if(fieldEnum == CPTBarPlotFieldBarLocation)
@@ -85,12 +94,15 @@
     return 0;
 }
 
+/**
+ Supply the color for the record at the given index
+ */
 -(CPTFill*)barFillForBarPlot:(CPTBarPlot *)barPlot
                   recordIndex:(NSUInteger)index
 {
     
     CPTGradient *gradient = [CPTGradient gradientWithBeginningColor:[CPTColor whiteColor]
-                                                        endingColor:[self.colors objectAtIndex:index]
+                                                        endingColor:[self.colors objectAtIndex:index] // Set color here
                                                     beginningPosition:0.0 endingPosition:0.3];
     [gradient setGradientType:CPTGradientTypeAxial];
     [gradient setAngle:320.0];
@@ -101,8 +113,12 @@
     
 }
 
+/**
+ Set the label for the given record in the plot. This is just the text of the answer.
+ */
 -(CPTLayer*)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
 {
+    // Set the text style for the label
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     textStyle.fontName = @"Helvetica";
     textStyle.fontSize = 6;
@@ -110,6 +126,7 @@
     textStyle.lineBreakMode = NSLineBreakByWordWrapping;
     textStyle.textAlignment = CPTTextAlignmentCenter;
     
+    // Set the text to be displayed for the given record
     Answer *answer = [self.answers objectAtIndex:index];
     CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:answer.answer];
     [label setMaximumSize:CGSizeMake(35.0, 1000)];
@@ -120,12 +137,18 @@
 
 #pragma mark - CPTBarPlotDelegate methods
 
+/**
+ Event called when a specific bar/record was selected
+ */
 -(void)barPlot:(CPTBarPlot *)plot barWasSelectedAtRecordIndex:(NSUInteger)index {
     //Do nothing
 }
 
 #pragma mark - Create CPTBarPlot
 
+/**
+ Generate the bar graph (taken from the example plot on Github)
+ */
 - (void)generateBarPlot
 {
     //Create host view
