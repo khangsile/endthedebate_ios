@@ -304,6 +304,7 @@
  */
 - (void)addQuestion:(Question*)question
 {
+    // Make sure each question is not already in the array to avoid duplicates
     for (Question *_question in self.questions) {
         if (question.questionId == _question.questionId) return;
     }
